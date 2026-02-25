@@ -1,0 +1,31 @@
+<!-- Copyright 2025 OpenSynergy Indonesia
+     Copyright 2025 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="okr_objective_internal_user_rule" model="ir.rule">
+    <field name="name">okr_objective - Internal User</field>
+    <field name="model_id" ref="model_okr_objective" />
+    <field name="groups" eval="[(6,0,[ref('base.group_user')])]" />
+    <field name="domain_force">[("user_id","=",user.id)]</field>
+</record>
+<record id="okr_objective_company_rule" model="ir.rule">
+    <field name="name">okr_objective - Responsible to company data</field>
+    <field name="model_id" ref="model_okr_objective" />
+    <field name="groups" eval="[(6,0,[ref('okr_objective_company_group')])]" />
+    <field name="domain_force">[("company_id","=",user.company_id.id)]</field>
+</record>
+<record id="okr_objective_child_company_rule" model="ir.rule">
+    <field
+            name="name"
+        >okr_objective - Responsible to company and all child companies data</field>
+    <field name="model_id" ref="model_okr_objective" />
+    <field name="groups" eval="[(6,0,[ref('okr_objective_child_company_group')])]" />
+    <field name="domain_force">[("company_id","in",user.company_ids.ids)]</field>
+</record>
+<record id="okr_objective_all_rule" model="ir.rule">
+    <field name="name">okr_objective - Responsible to all data</field>
+    <field name="model_id" ref="model_okr_objective" />
+    <field name="groups" eval="[(6,0,[ref('okr_objective_all')])]" />
+    <field name="domain_force">[(1,'=',1)]</field>
+</record>
+</odoo>

@@ -1,0 +1,70 @@
+<!-- Copyright 2025 OpenSynergy Indonesia
+   Copyright 2025 PT. Simetri Sinergi Indonesia
+   License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="okr_key_result_view_search" model="ir.ui.view">
+    <field name="name">okr_key_result - search</field>
+    <field name="model">okr_key_result</field>
+    <field
+            name="inherit_id"
+            ref="ssi_transaction_mixin.mixin_transaction_view_search"
+        />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+    <data>
+    </data>
+    </field>
+</record>
+
+<record id="okr_key_result_view_tree" model="ir.ui.view">
+    <field name="name">okr_key_result - tree</field>
+    <field name="model">okr_key_result</field>
+    <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_tree" />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+    <data>
+        <xpath expr="//field[@name='company_id']" position="after">
+            <field name="project_id" />
+            <field name="objective_id" />
+            <field name="key_result" />
+        </xpath>
+    </data>
+    </field>
+</record>
+
+<record id="okr_key_result_view_form" model="ir.ui.view">
+    <field name="name">okr_key_result - form</field>
+    <field name="model">okr_key_result</field>
+    <field name="inherit_id" ref="ssi_transaction_mixin.mixin_transaction_view_form" />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+    <data>
+        <xpath expr="//field[@name='user_id']" position="after">
+            <field name="project_id" />
+            <field name="objective_id" domain="[('project_id', '=', project_id)]" />
+        </xpath>
+        <xpath expr="//group[@name='header_right']" position="inside">
+            <field name="date" />
+        </xpath>
+        <xpath expr="//group[@name='header_center']" position="inside">
+            <field name="key_result" />
+        </xpath>
+    </data>
+    </field>
+</record>
+
+<record id="okr_key_result_action" model="ir.actions.act_window">
+    <field name="name">Key Results</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">okr_key_result</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem
+        id="okr_key_result_menu"
+        name="Key Results"
+        action="okr_key_result_action"
+        parent="ssi_project.menu_project_root_menu"
+        sequence="40"
+    />
+</odoo>

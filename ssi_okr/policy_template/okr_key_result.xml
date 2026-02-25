@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 OpenSynergy Indonesia
+     Copyright 2023 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+<record id="okr_key_result_policy_template" model="policy.template">
+    <field name="name">Standard</field>
+    <field name="model_id" ref="model_okr_key_result" />
+    <field
+            name="state_field_id"
+            search="[('model_id.model','=','okr_key_result'),('name','=','state')]"
+        />
+    <field name="sequence" eval="100" />
+    <field name="python_code">result=True</field>
+</record>
+
+<!-- ready -->
+<record id="okr_key_result_policy_template_detail_ready" model="policy.template_detail">
+    <field name="template_id" ref="okr_key_result_policy_template" />
+    <field
+            name="field_id"
+            search="[('model_id.model','=','okr_key_result'),('name','=','ready_ok')]"
+        />
+    <field name="restrict_state" eval="1" />
+    <field
+            name="state_ids"
+            search="[('field_id.model_id.model','=','okr_key_result'),('value','=','draft')]"
+        />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field name="group_ids" eval="[(6,0,[ref('okr_key_result_user_group')])]" />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- open -->
+<record id="okr_key_result_policy_template_detail_open" model="policy.template_detail">
+    <field name="template_id" ref="okr_key_result_policy_template" />
+    <field
+            name="field_id"
+            search="[('model_id.model','=','okr_key_result'),('name','=','open_ok')]"
+        />
+    <field name="restrict_state" eval="1" />
+    <field
+            name="state_ids"
+            search="[('field_id.model_id.model','=','okr_key_result'),('value','=','ready')]"
+        />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field name="group_ids" eval="[(6,0,[ref('okr_key_result_user_group')])]" />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- confirm -->
+<record
+        id="okr_key_result_policy_template_detail_confirm"
+        model="policy.template_detail"
+    >
+    <field name="template_id" ref="okr_key_result_policy_template" />
+    <field
+            name="field_id"
+            search="[('model_id.model','=','okr_key_result'),('name','=','confirm_ok')]"
+        />
+    <field name="restrict_state" eval="1" />
+    <field
+            name="state_ids"
+            search="[('field_id.model_id.model','=','okr_key_result'),('value','=','open')]"
+        />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field name="group_ids" eval="[(6,0,[ref('okr_key_result_user_group')])]" />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- approve -->
+<record
+        id="okr_key_result_policy_template_detail_approve"
+        model="policy.template_detail"
+    >
+    <field name="template_id" ref="okr_key_result_policy_template" />
+    <field
+            name="field_id"
+            search="[('model_id.model','=','okr_key_result'),('name','=','approve_ok')]"
+        />
+    <field name="restrict_state" eval="1" />
+    <field
+            name="state_ids"
+            search="[('field_id.model_id.model','=','okr_key_result'),('value','=','confirm')]"
+        />
+    <field name="restrict_user" eval="0" />
+    <field name="restrict_additional" eval="1" />
+    <field name="additional_python_code">result = False
+if env.user.id in document.active_approver_user_ids.ids:
+    result = True</field>
+</record>
+
+<!-- reject -->
+<record
+        id="okr_key_result_policy_template_detail_reject"
+        model="policy.template_detail"
+    >
+    <field name="template_id" ref="okr_key_result_policy_template" />
+    <field
+            name="field_id"
+            search="[('model_id.model','=','okr_key_result'),('name','=','reject_ok')]"
+        />
+    <field name="restrict_state" eval="1" />
+    <field
+            name="state_ids"
+            search="[('field_id.model_id.model','=','okr_key_result'),('value','=','confirm')]"
+        />
+    <field name="restrict_user" eval="0" />
+    <field name="restrict_additional" eval="1" />
+    <field name="additional_python_code">result = False
+if env.user.id in document.active_approver_user_ids.ids:
+    result = True</field>
+</record>
+
+<!-- restart approval -->
+<record
+        id="okr_key_result_policy_template_detail_restart_approval"
+        model="policy.template_detail"
+    >
+    <field name="template_id" ref="okr_key_result_policy_template" />
+    <field
+            name="field_id"
+            search="[('model_id.model','=','okr_key_result'),('name','=','restart_approval_ok')]"
+        />
+    <field name="restrict_state" eval="1" />
+    <field
+            name="state_ids"
+            search="[('field_id.model_id.model','=','okr_key_result'),('value','=','open')]"
+        />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field name="group_ids" eval="[(6,0,[ref('okr_key_result_validator_group')])]" />
+    <field name="restrict_additional" eval="1" />
+    <field name="additional_python_code">result = False
+if not document.approval_template_id:
+    result = True</field>
+</record>
+
+<!-- terminate -->
+<record
+        id="okr_key_result_policy_template_detail_terminate"
+        model="policy.template_detail"
+    >
+    <field name="template_id" ref="okr_key_result_policy_template" />
+    <field
+            name="field_id"
+            search="[('model_id.model','=','okr_key_result'),('name','=','terminate_ok')]"
+        />
+    <field name="restrict_state" eval="1" />
+    <field
+            name="state_ids"
+            search="[('field_id.model_id.model','=','okr_key_result'),('value','=','open')]"
+        />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field name="group_ids" eval="[(6,0,[ref('okr_key_result_user_group')])]" />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- cancel -->
+<record
+        id="okr_key_result_policy_template_detail_cancel"
+        model="policy.template_detail"
+    >
+    <field name="template_id" ref="okr_key_result_policy_template" />
+    <field
+            name="field_id"
+            search="[('model_id.model','=','okr_key_result'),('name','=','cancel_ok')]"
+        />
+    <field name="restrict_state" eval="1" />
+    <field
+            name="state_ids"
+            search="[('field_id.model_id.model','=','okr_key_result'),('value','in',['draft','open','done','terminate'])]"
+        />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field name="group_ids" eval="[(6,0,[ref('okr_key_result_validator_group')])]" />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- restart -->
+<record
+        id="okr_key_result_policy_template_detail_restart"
+        model="policy.template_detail"
+    >
+    <field name="template_id" ref="okr_key_result_policy_template" />
+    <field
+            name="field_id"
+            search="[('model_id.model','=','okr_key_result'),('name','=','restart_ok')]"
+        />
+    <field name="restrict_state" eval="1" />
+    <field
+            name="state_ids"
+            search="[('field_id.model_id.model','=','okr_key_result'),('value','in',['cancel','reject'])]"
+        />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field name="group_ids" eval="[(6,0,[ref('okr_key_result_validator_group')])]" />
+    <field name="restrict_additional" eval="0" />
+</record>
+
+<!-- manual number -->
+<record
+        id="okr_key_result_policy_template_detail_manual_number"
+        model="policy.template_detail"
+    >
+    <field name="template_id" ref="okr_key_result_policy_template" />
+    <field
+            name="field_id"
+            search="[('model_id.model','=','okr_key_result'),('name','=','manual_number_ok')]"
+        />
+    <field name="restrict_state" eval="1" />
+    <field
+            name="state_ids"
+            search="[('field_id.model_id.model','=','okr_key_result'),('value','=','draft')]"
+        />
+    <field name="restrict_user" eval="1" />
+    <field name="computation_method">use_group</field>
+    <field name="group_ids" eval="[(6,0,[ref('okr_key_result_validator_group')])]" />
+    <field name="restrict_additional" eval="0" />
+</record>
+</odoo>

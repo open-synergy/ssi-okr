@@ -1,0 +1,44 @@
+# Copyright 2026 OpenSynergy Indonesia
+# Copyright 2026 PT. Simetri Sinergi Indonesia
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+
+{
+    "name": "OKR",
+    "version": "14.0.1.4.0",
+    "website": "https://simetri-sinergi.id",
+    "author": "OpenSynergy Indonesia, PT. Simetri Sinergi Indonesia",
+    "license": "AGPL-3",
+    "installable": True,
+    "depends": [
+        "ssi_project",
+        "ssi_master_data_mixin",
+        "ssi_transaction_confirm_mixin",
+        "ssi_transaction_open_mixin",
+        "ssi_transaction_ready_mixin",
+        "ssi_transaction_done_mixin",
+        "ssi_transaction_cancel_mixin",
+        "ssi_transaction_terminate_mixin",
+        "ssi_m2o_configurator_mixin",
+    ],
+    "data": [
+        "security/ir_module_category/okr_objective.xml",
+        "security/ir_module_category/okr_key_result.xml",
+        "security/res_groups/okr_objective.xml",
+        "security/res_groups/okr_key_result.xml",
+        "security/ir_model_access/okr_objective.xml",
+        "security/ir_model_access/okr_key_result.xml",
+        "security/ir_rule/okr_objective.xml",
+        "security/ir_rule/okr_key_result.xml",
+        "ir_sequence/okr_objective.xml",
+        "ir_sequence/okr_key_result.xml",
+        "sequence_template/okr_objective.xml",
+        "sequence_template/okr_key_result.xml",
+        "approval_template/okr_objective.xml",
+        "approval_template/okr_key_result.xml",
+        "policy_template/okr_objective.xml",
+        "policy_template/okr_key_result.xml",
+        "view/okr_objective.xml",
+        "view/okr_key_result.xml",
+    ],
+    "demo": [],
+}
