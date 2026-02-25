@@ -1,0 +1,739 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ssi_okr
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__name
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__name
+msgid "# Document"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__message_needaction
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__active_approval_ids
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__active_approval_ids
+msgid "Active Approvals"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__active_approver_partner_ids
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__active_approver_partner_ids
+msgid "Active Partners"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__active_approver_user_ids
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__active_approver_user_ids
+msgid "Active Users"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__activity_ids
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__activity_exception_decoration
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__activity_state
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__activity_type_icon
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: ssi_okr
+#: model:res.groups,name:ssi_okr.okr_key_result_all
+#: model:res.groups,name:ssi_okr.okr_objective_all
+msgid "All"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__allowed_policy_template_ids
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__allowed_policy_template_ids
+msgid "Allowed Policy Templates"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__approval_template_id
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__approval_template_id
+msgid "Approval Configuration"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__approval_template_id
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__approval_template_id
+msgid "Approval Template"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__approval_ids
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__approval_ids
+msgid "Approvals"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__approve_ok
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__approve_ok
+msgid ""
+"Approve policy\n"
+"\n"
+"* If active user can see and execute 'Approve' button"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__approved
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__approved
+msgid "Approved"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__message_attachment_count
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__approve_ok
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__approve_ok
+msgid "Can Approve"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__cancel_ok
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__cancel_ok
+msgid "Can Cancel"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__confirm_ok
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__confirm_ok
+msgid "Can Confirm"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__done_ok
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__done_ok
+msgid "Can Finished"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__manual_number_ok
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__manual_number_ok
+msgid "Can Input Manual Document Number"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__reject_ok
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__reject_ok
+msgid "Can Reject"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__restart_ok
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__restart_ok
+msgid "Can Restart"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__restart_approval_ok
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__restart_approval_ok
+msgid "Can Restart Approval"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__ready_ok
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__ready_ok
+msgid "Can Stagged"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__open_ok
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__open_ok
+msgid "Can Start"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__terminate_ok
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__terminate_ok
+msgid "Can Terminate"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__cancel_reason_id
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__cancel_reason_id
+msgid "Cancel Reason"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__cancel_ok
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__cancel_ok
+msgid ""
+"Cancel policy\n"
+"\n"
+"* If active user can see and execute 'Cancel' button"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__company_id
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__company_id
+#: model:res.groups,name:ssi_okr.okr_key_result_company_group
+#: model:res.groups,name:ssi_okr.okr_objective_company_group
+msgid "Company"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__company_partner_id
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__company_partner_id
+msgid "Company Partner"
+msgstr ""
+
+#. module: ssi_okr
+#: model:res.groups,name:ssi_okr.okr_key_result_child_company_group
+#: model:res.groups,name:ssi_okr.okr_objective_child_company_group
+msgid "Company and All Child Companies"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__company_id
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__company_id
+msgid ""
+"Company that own the document\n"
+"\n"
+"* Automatically filled with user's company.\n"
+"  Default company can be changed"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__confirm_ok
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__confirm_ok
+msgid ""
+"Confirm policy\n"
+"\n"
+"* If active user can see and execute 'Confirm' button"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__create_uid
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__create_date
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__date
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__date
+msgid "Date"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__date
+msgid "Date of the OKR Key Result."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__date
+msgid "Date of the OKR Objective."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__key_result
+msgid "Description of the OKR Key Result."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__objective
+msgid "Description of the OKR Objective."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__display_name
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__done_ok
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__done_ok
+msgid ""
+"Done policy\n"
+"\n"
+"* If active user can see and execute 'Done' button"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__message_follower_ids
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__message_channel_ids
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__message_partner_ids
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__activity_type_icon
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__id
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__id
+msgid "ID"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__activity_exception_icon
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__activity_exception_icon
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__message_needaction
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__message_unread
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__message_needaction
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__message_has_error
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__message_is_follower
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__key_result
+msgid "Key Result"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__key_result_count
+msgid "Key Result Count"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.actions.act_window,name:ssi_okr.okr_key_result_action
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__key_result_ids
+#: model:ir.ui.menu,name:ssi_okr.okr_key_result_menu
+msgid "Key Results"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__key_result_ids
+msgid "Key Results related to the OKR Objective."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result____last_update
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__write_uid
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__write_date
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__message_main_attachment_id
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__manual_number_ok
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__manual_number_ok
+msgid ""
+"Manual number assignment policy\n"
+"\n"
+"* If active user can edit document number"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__message_has_error
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__message_ids
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__my_activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__need_validation
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__need_validation
+msgid "Need Validation"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__activity_date_deadline
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__activity_summary
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__activity_type_id
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__next_approval_ids
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__next_approval_ids
+msgid "Next Approvals"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__note
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__note
+msgid "Note"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__message_needaction_counter
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__key_result_count
+msgid "Number of Key Results related to the OKR Objective."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__message_has_error_counter
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__message_needaction_counter
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__message_has_error_counter
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__message_unread_counter
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model,name:ssi_okr.model_okr_key_result
+#: model:ir.module.category,name:ssi_okr.okr_key_result_data_ownership
+#: model:ir.module.category,name:ssi_okr.okr_key_result_workflow
+msgid "OKR Key Result"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model,name:ssi_okr.model_okr_objective
+#: model:ir.module.category,name:ssi_okr.okr_objective_data_ownership
+#: model:ir.module.category,name:ssi_okr.okr_objective_workflow
+msgid "OKR Objective"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__objective_id
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__objective
+msgid "Objective"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__objective_id
+msgid "Objective related to the OKR Key Result."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.actions.act_window,name:ssi_okr.okr_objective_action
+#: model:ir.ui.menu,name:ssi_okr.okr_objective_menu
+msgid "Objectives"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__policy_template_id
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__policy_template_id
+msgid "Policy Template"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__project_id
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__project_id
+msgid "Project"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__project_id
+msgid "Project related to the OKR Key Result."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__project_id
+msgid "Project related to the OKR Objective."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__ready_ok
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__ready_ok
+msgid ""
+"Ready policy\n"
+"\n"
+"* If active user can see and execute 'Staged' button"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__reject_ok
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__reject_ok
+msgid ""
+"Reject policy\n"
+"\n"
+"* If active user can see and execute 'Reject' button"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__rejected
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__rejected
+msgid "Rejected"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__user_id
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__user_id
+msgid "Responsible"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__activity_user_id
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__restart_approval_ok
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__restart_approval_ok
+msgid ""
+"Restart approval policy\n"
+"\n"
+"* If active user can see and execute 'Restart Approval' button"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__restart_ok
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__restart_ok
+msgid ""
+"Restart policy\n"
+"\n"
+"* If active user can see and execute 'Restart' button"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__reviewer_id
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__reviewer_id
+msgid "Reviewer"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__open_ok
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__open_ok
+msgid ""
+"Start policy\n"
+"\n"
+"* If active user can see and execute 'Start' button"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__state
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__state
+msgid "State"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__activity_state
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__terminate_reason_id
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__terminate_reason_id
+msgid "Terminate Reason"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__terminate_ok
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__terminate_ok
+msgid ""
+"Terminate policy\n"
+"\n"
+"* If active user can see and execute 'Terminate' button"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__name
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__name
+msgid ""
+"Transaction/document number\n"
+"\n"
+"* Unique indentifer of transaction\n"
+"* Leave '/' to automatically generate number\n"
+"* Change '/' into any number/identifier to manually assign number.\n"
+"  Manual number assignment can be done in 'Draft' state\n"
+"  Only user with 'Can Manualy Assign Number' policy can manually assign number.\n"
+"* Transaction with number other than '/' can not be deleted."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__activity_exception_decoration
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__message_unread
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__message_unread_counter
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: ssi_okr
+#: model:res.groups,name:ssi_okr.okr_key_result_user_group
+#: model:res.groups,name:ssi_okr.okr_objective_user_group
+msgid "User"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__user_id
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__user_id
+msgid ""
+"User that responsible for document\n"
+"\n"
+"* Create user can be different with responsible user\n"
+"* Automatically filled with user that initiate document creation.\n"
+"  Default responsible can be changed."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__reviewer_id
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__reviewer_id
+msgid ""
+"User that responsible to review document\n"
+"\n"
+"* Unless it configured to approve reviewer does not equal to approver"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__active_approver_user_ids
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__active_approver_user_ids
+msgid "Users that can approve/reject document"
+msgstr ""
+
+#. module: ssi_okr
+#: model:res.groups,name:ssi_okr.okr_key_result_validator_group
+#: model:res.groups,name:ssi_okr.okr_objective_validator_group
+msgid "Validator"
+msgstr ""
+
+#. module: ssi_okr
+#: model:res.groups,name:ssi_okr.okr_key_result_viewer_group
+#: model:res.groups,name:ssi_okr.okr_objective_viewer_group
+msgid "Viewer"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__website_message_ids
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__website_message_ids
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__website_message_ids
+msgid "Website communication history"
+msgstr ""
