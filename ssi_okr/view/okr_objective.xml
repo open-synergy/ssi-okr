@@ -27,6 +27,8 @@
             <field name="partner_id" widget="many2one_avatar" />
             <field name="contact_partner_id" widget="many2one_avatar" optional="hide" />
             <field name="objective" />
+            <field name="date_start" />
+            <field name="date_end" />
             <field name="key_result_count" />
             <field name="open_key_result_count" string="∑ Open" optional="hide" />
             <field name="percentage_open" string="% Open" widget="percentage" />
@@ -78,6 +80,8 @@
         </xpath>
         <xpath expr="//group[@name='header_right']" position="inside">
             <field name="date" />
+            <field name="date_start" />
+            <field name="date_end" />
         </xpath>
         <xpath expr="//group[@name='header_center']" position="inside">
             <field name="objective" />
