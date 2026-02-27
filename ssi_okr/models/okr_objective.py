@@ -13,12 +13,12 @@ class OkrObjective(models.Model):
     _name = "okr_objective"
     _description = "OKR Objective"
     _inherit = [
-        "mixin.transaction_ready",
-        "mixin.transaction_open",
-        "mixin.transaction_confirm",
-        "mixin.transaction_done",
-        "mixin.transaction_cancel",
         "mixin.transaction_terminate",
+        "mixin.transaction_cancel",
+        "mixin.transaction_done",
+        "mixin.transaction_confirm",
+        "mixin.transaction_open",
+        "mixin.transaction_ready",
         "mixin.transaction_partner",
         "mixin.transaction_date_duration",
         "mixin.many2one_configurator",
