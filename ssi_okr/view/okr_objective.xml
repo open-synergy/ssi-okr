@@ -27,6 +27,23 @@
             <field name="partner_id" widget="many2one_avatar" />
             <field name="contact_partner_id" widget="many2one_avatar" optional="hide" />
             <field name="objective" />
+            <field name="key_result_count" />
+            <field name="open_key_result_count" string="∑ Open" optional="hide" />
+            <field name="percentage_open" string="% Open" widget="percentage" />
+            <field name="done_key_result_count" string="∑ Done" optional="hide" />
+            <field name="percentage_completed" string="% Done" widget="percentage" />
+            <field name="cancel_key_result_count" string="∑ Cancel" optional="hide" />
+            <field name="percentage_cancel" string="% Cancel" widget="percentage" />
+            <field
+                        name="terminate_key_result_count"
+                        string="∑ Terminate"
+                        optional="hide"
+                    />
+            <field
+                        name="percentage_terminate"
+                        string="% Terminate"
+                        widget="percentage"
+                    />
         </xpath>
     </data>
     </field>
@@ -39,6 +56,17 @@
     <field name="mode">primary</field>
     <field name="arch" type="xml">
     <data>
+        <xpath expr="//div[@name='button_box']" position="inside">
+            <button
+                        name="action_open_key_result"
+                        type="object"
+                        class="oe_stat_button"
+                        groups="ssi_okr.okr_objective_viewer_group"
+                        icon="fa-list"
+                    >
+                <field name="key_result_count" string="Key Result" widget="statinfo" />
+            </button>
+        </xpath>
         <xpath expr="//field[@name='user_id']" position="after">
             <field name="partner_id" widget="many2one_avatar" />
             <field name="allowed_contact_ids" widget="many2many_tags" invisible="1" />
@@ -53,6 +81,46 @@
         </xpath>
         <xpath expr="//group[@name='header_center']" position="inside">
             <field name="objective" />
+        </xpath>
+        <xpath expr="//page[1]" position="before">
+            <page string="Key Results">
+                <group name="key_result_1" colspan="4" col="2">
+                    <group name="key_result_1_left" colspan="1" col="2" string="Count">
+                        <field name="key_result_count" string="Total" />
+                        <field name="open_key_result_count" string="Open" />
+                        <field name="done_key_result_count" string="Done" />
+                        <field name="cancel_key_result_count" string="Cancel" />
+                        <field name="terminate_key_result_count" string="Terminate" />
+                    </group>
+                    <group
+                                name="key_result_1_right"
+                                colspan="1"
+                                col="2"
+                                string="Percentage"
+                            >
+                        <field
+                                    name="percentage_open"
+                                    string="Open"
+                                    widget="percentage"
+                                />
+                        <field
+                                    name="percentage_completed"
+                                    string="Done"
+                                    widget="percentage"
+                                />
+                        <field
+                                    name="percentage_cancel"
+                                    string="Cancel"
+                                    widget="percentage"
+                                />
+                        <field
+                                    name="percentage_terminate"
+                                    string="Terminate"
+                                    widget="percentage"
+                                />
+                    </group>
+                </group>
+            </page>
         </xpath>
     </data>
     </field>

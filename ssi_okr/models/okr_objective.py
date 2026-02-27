@@ -106,10 +106,96 @@ class OkrObjective(models.Model):
         store=True,
         compute_sudo=True,
     )
+    open_key_result_count = fields.Integer(
+        string="On-Going Key Result Count",
+        compute="_compute_key_result_count",
+        help="Number of on-going Key Results related to the OKR Objective.",
+        store=True,
+        compute_sudo=True,
+    )
+    done_key_result_count = fields.Integer(
+        string="Completed Key Result Count",
+        compute="_compute_key_result_count",
+        help="Number of completed Key Results related to the OKR Objective.",
+        store=True,
+        compute_sudo=True,
+    )
+    cancel_key_result_count = fields.Integer(
+        string="Canceled Key Result Count",
+        compute="_compute_key_result_count",
+        help="Number of canceled Key Results related to the OKR Objective.",
+        store=True,
+        compute_sudo=True,
+    )
+    terminate_key_result_count = fields.Integer(
+        string="Terminated Key Result Count",
+        compute="_compute_key_result_count",
+        help="Number of terminated Key Results related to the OKR Objective.",
+        store=True,
+        compute_sudo=True,
+    )
+    percentage_completed = fields.Float(
+        string="Percentage Completed",
+        compute="_compute_percentage",
+        help="Percentage of completed Key Results related to the OKR Objective.",
+        store=True,
+        compute_sudo=True,
+    )
+    percentage_open = fields.Float(
+        string="Percentage On-Going",
+        compute="_compute_percentage",
+        help="Percentage of on-going Key Results related to the OKR Objective.",
+        store=True,
+        compute_sudo=True,
+    )
+    percentage_cancel = fields.Float(
+        string="Percentage Canceled",
+        compute="_compute_percentage",
+        help="Percentage of canceled Key Results related to the OKR Objective.",
+        store=True,
+        compute_sudo=True,
+    )
+    percentage_terminate = fields.Float(
+        string="Percentage Terminated",
+        compute="_compute_percentage",
+        help="Percentage of terminated Key Results related to the OKR Objective.",
+        store=True,
+        compute_sudo=True,
+    )
 
     @api.model
     def _default_date(self):
         return date.today()
+
+    @api.depends(
+        "key_result_count",
+        "done_key_result_count",
+        "open_key_result_count",
+        "cancel_key_result_count",
+        "terminate_key_result_count",
+    )
+    def _compute_percentage(self):
+        for record in self:
+            record.percentage_completed = (
+                (record.done_key_result_count / record.key_result_count)
+                if record.key_result_count > 0
+                else 0
+            )
+            record.percentage_open = (
+                (record.open_key_result_count / record.key_result_count)
+                if record.key_result_count > 0
+                else 0
+            )
+            record.percentage_cancel = (
+                (record.cancel_key_result_count / record.key_result_count)
+                if record.key_result_count > 0
+                else 0
+            )
+            record.percentage_terminate = (
+                (record.terminate_key_result_count / record.key_result_count)
+                if record.key_result_count > 0
+                else 0
+            )
 
     @api.depends(
         "key_result_ids",
@@ -117,10 +203,36 @@ class OkrObjective(models.Model):
     )
     def _compute_key_result_count(self):
         for record in self:
-            valid_key_results = record.key_result_ids.filtered(
-                lambda kr: kr.state not in ["cancel", "draft"]
+            record.key_result_count = len(record.key_result_ids)
+            record.open_key_result_count = len(
+                record.key_result_ids.filtered(
+                    lambda r: r.state in ["draft", "open", "ready", "confirm"]
+                )
             )
-            record.key_result_count = len(valid_key_results)
+            record.done_key_result_count = len(
+                record.key_result_ids.filtered(lambda r: r.state == "done")
+            )
+            record.cancel_key_result_count = len(
+                record.key_result_ids.filtered(lambda r: r.state == "cancel")
+            )
+            record.terminate_key_result_count = len(
+                record.key_result_ids.filtered(lambda r: r.state == "terminate")
+            )
+
+    def action_open_key_result(self):
+        self.ensure_one()
+        partner = self.partner_id
+        return {
+            "name": "OKR Key Results",
+            "type": "ir.actions.act_window",
+            "res_model": "okr_key_result",
+            "view_mode": "tree,form",
+            "domain": [("objective_id", "=", self.id)],
+            "context": {
+                "default_objective_id": self.id,
+                "default_partner_id": partner and partner.id or False,
+            },
+        }
 
     @ssi_decorator.insert_on_form_view()
     def _insert_form_element(self, view_arch):
