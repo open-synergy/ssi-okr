@@ -20,6 +20,26 @@ msgid "# Document"
 msgstr ""
 
 #. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_tree
+msgid "% Cancel"
+msgstr ""
+
+#. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_tree
+msgid "% Done"
+msgstr ""
+
+#. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_tree
+msgid "% Open"
+msgstr ""
+
+#. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_tree
+msgid "% Terminate"
+msgstr ""
+
+#. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__message_needaction
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__message_needaction
 msgid "Action Needed"
@@ -191,6 +211,11 @@ msgid "Can Terminate"
 msgstr ""
 
 #. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__cancel_reason_id
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__cancel_reason_id
 msgid "Cancel Reason"
@@ -203,6 +228,11 @@ msgid ""
 "Cancel policy\n"
 "\n"
 "* If active user can see and execute 'Cancel' button"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__cancel_key_result_count
+msgid "Canceled Key Result Count"
 msgstr ""
 
 #. module: ssi_okr
@@ -236,6 +266,11 @@ msgid ""
 msgstr ""
 
 #. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__done_key_result_count
+msgid "Completed Key Result Count"
+msgstr ""
+
+#. module: ssi_okr
 #: model:ir.model.fields,help:ssi_okr.field_okr_key_result__confirm_ok
 #: model:ir.model.fields,help:ssi_okr.field_okr_objective__confirm_ok
 msgid ""
@@ -248,6 +283,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__contact_partner_id
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__contact_partner_id
 msgid "Contact"
+msgstr ""
+
+#. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_form
+msgid "Count"
 msgstr ""
 
 #. module: ssi_okr
@@ -292,6 +332,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__display_name
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__display_name
 msgid "Display Name"
+msgstr ""
+
+#. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_form
+msgid "Done"
 msgstr ""
 
 #. module: ssi_okr
@@ -367,6 +412,7 @@ msgstr ""
 
 #. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__key_result
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_form
 msgid "Key Result"
 msgstr ""
 
@@ -379,6 +425,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:ssi_okr.okr_key_result_action
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__key_result_ids
 #: model:ir.ui.menu,name:ssi_okr.okr_key_result_menu
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_form
 msgid "Key Results"
 msgstr ""
 
@@ -486,6 +533,16 @@ msgid "Number of Key Results related to the OKR Objective."
 msgstr ""
 
 #. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__cancel_key_result_count
+msgid "Number of canceled Key Results related to the OKR Objective."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__done_key_result_count
+msgid "Number of completed Key Results related to the OKR Objective."
+msgstr ""
+
+#. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__message_has_error_counter
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__message_has_error_counter
 msgid "Number of errors"
@@ -501,6 +558,16 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_okr.field_okr_key_result__message_has_error_counter
 #: model:ir.model.fields,help:ssi_okr.field_okr_objective__message_has_error_counter
 msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__open_key_result_count
+msgid "Number of on-going Key Results related to the OKR Objective."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__terminate_key_result_count
+msgid "Number of terminated Key Results related to the OKR Objective."
 msgstr ""
 
 #. module: ssi_okr
@@ -541,9 +608,64 @@ msgid "Objectives"
 msgstr ""
 
 #. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__open_key_result_count
+msgid "On-Going Key Result Count"
+msgstr ""
+
+#. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_form
+msgid "Open"
+msgstr ""
+
+#. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__partner_id
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__partner_id
 msgid "Partner"
+msgstr ""
+
+#. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_form
+msgid "Percentage"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__percentage_cancel
+msgid "Percentage Canceled"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__percentage_completed
+msgid "Percentage Completed"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__percentage_open
+msgid "Percentage On-Going"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__percentage_terminate
+msgid "Percentage Terminated"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__percentage_cancel
+msgid "Percentage of canceled Key Results related to the OKR Objective."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__percentage_completed
+msgid "Percentage of completed Key Results related to the OKR Objective."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__percentage_open
+msgid "Percentage of on-going Key Results related to the OKR Objective."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_objective__percentage_terminate
+msgid "Percentage of terminated Key Results related to the OKR Objective."
 msgstr ""
 
 #. module: ssi_okr
@@ -638,6 +760,11 @@ msgid ""
 msgstr ""
 
 #. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_form
+msgid "Terminate"
+msgstr ""
+
+#. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__terminate_reason_id
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__terminate_reason_id
 msgid "Terminate Reason"
@@ -650,6 +777,16 @@ msgid ""
 "Terminate policy\n"
 "\n"
 "* If active user can see and execute 'Terminate' button"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__terminate_key_result_count
+msgid "Terminated Key Result Count"
+msgstr ""
+
+#. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_form
+msgid "Total"
 msgstr ""
 
 #. module: ssi_okr
@@ -738,4 +875,24 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_okr.field_okr_key_result__website_message_ids
 #: model:ir.model.fields,help:ssi_okr.field_okr_objective__website_message_ids
 msgid "Website communication history"
+msgstr ""
+
+#. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_tree
+msgid "∑ Cancel"
+msgstr ""
+
+#. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_tree
+msgid "∑ Done"
+msgstr ""
+
+#. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_tree
+msgid "∑ Open"
+msgstr ""
+
+#. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_tree
+msgid "∑ Terminate"
 msgstr ""
