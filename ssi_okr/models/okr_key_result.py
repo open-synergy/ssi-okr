@@ -19,6 +19,7 @@ class OkrKeyResult(models.Model):
         "mixin.transaction_done",
         "mixin.transaction_cancel",
         "mixin.transaction_terminate",
+        "mixin.transaction_partner",
         "mixin.many2one_configurator",
     ]
 
@@ -81,6 +82,9 @@ class OkrKeyResult(models.Model):
         default=lambda r: r._default_date(),
         help="Date of the OKR Key Result.",
     )
+    partner_id = fields.Many2one(
+        required=False,
+    )
     objective_id = fields.Many2one(
         comodel_name="okr_objective",
         string="Objective",
@@ -100,6 +104,12 @@ class OkrKeyResult(models.Model):
     @api.model
     def _default_date(self):
         return date.today()
+
+    @api.onchange(
+        "partner_id",
+    )
+    def onchange_objective_id(self):
+        self.objective_id = False
 
     # E.11: insert form elements into view
     @ssi_decorator.insert_on_form_view()

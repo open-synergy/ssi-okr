@@ -19,6 +19,7 @@ class OkrObjective(models.Model):
         "mixin.transaction_done",
         "mixin.transaction_cancel",
         "mixin.transaction_terminate",
+        "mixin.transaction_partner",
         "mixin.many2one_configurator",
     ]
 
@@ -80,6 +81,9 @@ class OkrObjective(models.Model):
         states={"draft": [("readonly", False)]},
         default=lambda r: r._default_date(),
         help="Date of the OKR Objective.",
+    )
+    partner_id = fields.Many2one(
+        required=False,
     )
     objective = fields.Char(
         string="Objective",
