@@ -309,6 +309,16 @@ msgid "Date"
 msgstr ""
 
 #. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__date_end
+msgid "Date End"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__date_start
+msgid "Date Start"
+msgstr ""
+
+#. module: ssi_okr
 #: model:ir.model.fields,help:ssi_okr.field_okr_key_result__date
 msgid "Date of the OKR Key Result."
 msgstr ""
@@ -316,6 +326,16 @@ msgstr ""
 #. module: ssi_okr
 #: model:ir.model.fields,help:ssi_okr.field_okr_objective__date
 msgid "Date of the OKR Objective."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__date_deadline
+msgid "Deadline"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__date_deadline
+msgid "Deadline of the OKR Key Result."
 msgstr ""
 
 #. module: ssi_okr
