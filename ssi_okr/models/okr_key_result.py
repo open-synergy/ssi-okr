@@ -107,6 +107,72 @@ class OkrKeyResult(models.Model):
         states={"draft": [("readonly", False)]},
         help="Description of the OKR Key Result.",
     )
+    target_value = fields.Float(
+        string="Target Value",
+        required=True,
+        readonly=True,
+        states={"draft": [("readonly", False)]},
+        help="Target value of the OKR Key Result.",
+    )
+    measurement_ids = fields.One2many(
+        comodel_name="okr_key_result.measurement",
+        inverse_name="key_result_id",
+        string="Measurements",
+        help="Measurements of the OKR Key Result.",
+        readonly=True,
+        states={"open": [("readonly", False)]},
+    )
+    actual_value = fields.Float(
+        string="Actual Value",
+        compute="_compute_actual_value",
+        help="Actual value of the OKR Key Result.",
+        store=True,
+        compute_sudo=True,
+    )
+    uom_id = fields.Many2one(
+        comodel_name="uom.uom",
+        string="Unit of Measure",
+        required=True,
+        readonly=True,
+        states={"draft": [("readonly", False)]},
+        help="Unit of measure of the OKR Key Result.",
+    )
+    percentage = fields.Float(
+        string="Percentage",
+        compute="_compute_percentage",
+        help="Percentage of the OKR Key Result.",
+        store=True,
+        compute_sudo=True,
+    )
+
+    @api.depends(
+        "target_value",
+        "measurement_ids.value",
+        "measurement_ids.date",
+        "measurement_ids",
+    )
+    def _compute_actual_value(self):
+        for record in self:
+            record.percentage = 0.0
+            # Loop measurement_ids to get the latest measurement value
+            if record.measurement_ids:
+                latest_measurement = max(
+                    record.measurement_ids, key=lambda m: m.date or date.min
+                )
+                record.actual_value = latest_measurement.value
+
+    @api.depends(
+        "target_value",
+        "measurement_ids.value",
+        "measurement_ids.date",
+        "measurement_ids",
+    )
+    def _compute_percentage(self):
+        for record in self:
+            if record.target_value:
+                record.percentage = record.actual_value / record.target_value
+            else:
+                record.percentage = 0.0
 
     @api.model
     def _default_date(self):
