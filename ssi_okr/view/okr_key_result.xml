@@ -24,7 +24,6 @@
     <field name="arch" type="xml">
     <data>
         <xpath expr="//field[@name='company_id']" position="after">
-            <field name="project_id" />
             <field name="objective_id" />
             <field name="key_result" />
         </xpath>
@@ -40,8 +39,7 @@
     <field name="arch" type="xml">
     <data>
         <xpath expr="//field[@name='user_id']" position="after">
-            <field name="project_id" />
-            <field name="objective_id" domain="[('project_id', '=', project_id)]" />
+            <field name="objective_id" />
         </xpath>
         <xpath expr="//group[@name='header_right']" position="inside">
             <field name="date" />

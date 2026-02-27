@@ -81,14 +81,6 @@ class OkrObjective(models.Model):
         default=lambda r: r._default_date(),
         help="Date of the OKR Objective.",
     )
-    project_id = fields.Many2one(
-        comodel_name="project.project",
-        string="Project",
-        required=True,
-        readonly=True,
-        states={"draft": [("readonly", False)]},
-        help="Project related to the OKR Objective.",
-    )
     objective = fields.Char(
         string="Objective",
         required=True,
@@ -126,14 +118,12 @@ class OkrObjective(models.Model):
             )
             record.key_result_count = len(valid_key_results)
 
-    # E.11: insert form elements into view
     @ssi_decorator.insert_on_form_view()
     def _insert_form_element(self, view_arch):
         if self._automatically_insert_view_element:
             view_arch = self._reconfigure_statusbar_visible(view_arch)
         return view_arch
 
-    # E.12: provide additional policy fields
     @api.model
     def _get_policy_field(self):
         res = super()._get_policy_field()
