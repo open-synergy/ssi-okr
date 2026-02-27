@@ -19,6 +19,7 @@ class OkrKeyResult(models.Model):
         "mixin.transaction_done",
         "mixin.transaction_cancel",
         "mixin.transaction_terminate",
+        "mixin.transaction_partner",
         "mixin.many2one_configurator",
     ]
 
@@ -81,13 +82,8 @@ class OkrKeyResult(models.Model):
         default=lambda r: r._default_date(),
         help="Date of the OKR Key Result.",
     )
-    project_id = fields.Many2one(
-        comodel_name="project.project",
-        string="Project",
-        required=True,
-        readonly=True,
-        states={"draft": [("readonly", False)]},
-        help="Project related to the OKR Key Result.",
+    partner_id = fields.Many2one(
+        required=False,
     )
     objective_id = fields.Many2one(
         comodel_name="okr_objective",
@@ -110,7 +106,7 @@ class OkrKeyResult(models.Model):
         return date.today()
 
     @api.onchange(
-        "project_id",
+        "partner_id",
     )
     def onchange_objective_id(self):
         self.objective_id = False
