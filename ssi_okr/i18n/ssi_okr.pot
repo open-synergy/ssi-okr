@@ -74,6 +74,12 @@ msgid "All"
 msgstr ""
 
 #. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__allowed_contact_ids
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__allowed_contact_ids
+msgid "Allowed Contact"
+msgstr ""
+
+#. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__allowed_policy_template_ids
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__allowed_policy_template_ids
 msgid "Allowed Policy Templates"
@@ -236,6 +242,12 @@ msgid ""
 "Confirm policy\n"
 "\n"
 "* If active user can see and execute 'Confirm' button"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__contact_partner_id
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__contact_partner_id
+msgid "Contact"
 msgstr ""
 
 #. module: ssi_okr
@@ -529,25 +541,15 @@ msgid "Objectives"
 msgstr ""
 
 #. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__partner_id
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__policy_template_id
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__policy_template_id
 msgid "Policy Template"
-msgstr ""
-
-#. module: ssi_okr
-#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__project_id
-#: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__project_id
-msgid "Project"
-msgstr ""
-
-#. module: ssi_okr
-#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__project_id
-msgid "Project related to the OKR Key Result."
-msgstr ""
-
-#. module: ssi_okr
-#: model:ir.model.fields,help:ssi_okr.field_okr_objective__project_id
-msgid "Project related to the OKR Objective."
 msgstr ""
 
 #. module: ssi_okr
