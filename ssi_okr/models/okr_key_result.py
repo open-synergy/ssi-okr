@@ -93,6 +93,13 @@ class OkrKeyResult(models.Model):
         states={"draft": [("readonly", False)]},
         help="Objective related to the OKR Key Result.",
     )
+    date_deadline = fields.Date(
+        string="Deadline",
+        required=True,
+        readonly=True,
+        states={"draft": [("readonly", False)]},
+        help="Deadline of the OKR Key Result.",
+    )
     key_result = fields.Char(
         string="Key Result",
         required=True,
@@ -110,6 +117,14 @@ class OkrKeyResult(models.Model):
     )
     def onchange_objective_id(self):
         self.objective_id = False
+
+    @api.onchange(
+        "objective_id",
+    )
+    def onchange_date_deadline(self):
+        self.date_deadline = False
+        if self.objective_id and self.objective_id.date_end:
+            self.date_deadline = self.objective_id.date_end
 
     # E.11: insert form elements into view
     @ssi_decorator.insert_on_form_view()

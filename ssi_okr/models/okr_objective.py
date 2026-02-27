@@ -20,6 +20,7 @@ class OkrObjective(models.Model):
         "mixin.transaction_cancel",
         "mixin.transaction_terminate",
         "mixin.transaction_partner",
+        "mixin.transaction_date_duration",
         "mixin.many2one_configurator",
     ]
 
