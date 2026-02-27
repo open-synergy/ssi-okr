@@ -88,6 +88,16 @@ msgid "Activity Type Icon"
 msgstr ""
 
 #. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__actual_value
+msgid "Actual Value"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__actual_value
+msgid "Actual value of the OKR Key Result."
+msgstr ""
+
+#. module: ssi_okr
 #: model:res.groups,name:ssi_okr.okr_key_result_all
 #: model:res.groups,name:ssi_okr.okr_objective_all
 msgid "All"
@@ -292,18 +302,21 @@ msgstr ""
 
 #. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__create_uid
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result_measurement__create_uid
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__create_date
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result_measurement__create_date
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__create_date
 msgid "Created on"
 msgstr ""
 
 #. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__date
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result_measurement__date
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__date
 msgid "Date"
 msgstr ""
@@ -350,6 +363,7 @@ msgstr ""
 
 #. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__display_name
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result_measurement__display_name
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__display_name
 msgid "Display Name"
 msgstr ""
@@ -394,6 +408,7 @@ msgstr ""
 
 #. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__id
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result_measurement__id
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__id
 msgid "ID"
 msgstr ""
@@ -432,6 +447,7 @@ msgstr ""
 
 #. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__key_result
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result_measurement__key_result_id
 #: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_form
 msgid "Key Result"
 msgstr ""
@@ -456,18 +472,21 @@ msgstr ""
 
 #. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result____last_update
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result_measurement____last_update
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective____last_update
 msgid "Last Modified on"
 msgstr ""
 
 #. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__write_uid
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result_measurement__write_uid
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__write_date
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result_measurement__write_date
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__write_date
 msgid "Last Updated on"
 msgstr ""
@@ -485,6 +504,16 @@ msgid ""
 "Manual number assignment policy\n"
 "\n"
 "* If active user can edit document number"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__measurement_ids
+msgid "Measurements"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__measurement_ids
+msgid "Measurements of the OKR Key Result."
 msgstr ""
 
 #. module: ssi_okr
@@ -537,6 +566,7 @@ msgstr ""
 
 #. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__note
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result_measurement__note
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__note
 msgid "Note"
 msgstr ""
@@ -604,6 +634,11 @@ msgid "OKR Key Result"
 msgstr ""
 
 #. module: ssi_okr
+#: model:ir.model,name:ssi_okr.model_okr_key_result_measurement
+msgid "OKR Key Result - Measurement"
+msgstr ""
+
+#. module: ssi_okr
 #: model:ir.model,name:ssi_okr.model_okr_objective
 #: model:ir.module.category,name:ssi_okr.okr_objective_data_ownership
 #: model:ir.module.category,name:ssi_okr.okr_objective_workflow
@@ -644,6 +679,7 @@ msgid "Partner"
 msgstr ""
 
 #. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__percentage
 #: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_form
 msgid "Percentage"
 msgstr ""
@@ -686,6 +722,11 @@ msgstr ""
 #. module: ssi_okr
 #: model:ir.model.fields,help:ssi_okr.field_okr_objective__percentage_terminate
 msgid "Percentage of terminated Key Results related to the OKR Objective."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__percentage
+msgid "Percentage of the OKR Key Result."
 msgstr ""
 
 #. module: ssi_okr
@@ -780,6 +821,21 @@ msgid ""
 msgstr ""
 
 #. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_form
+msgid "Target & Measurement"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__target_value
+msgid "Target Value"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__target_value
+msgid "Target value of the OKR Key Result."
+msgstr ""
+
+#. module: ssi_okr
 #: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_form
 msgid "Terminate"
 msgstr ""
@@ -830,6 +886,16 @@ msgid "Type of the exception activity on record."
 msgstr ""
 
 #. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__uom_id
+msgid "Unit of Measure"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__uom_id
+msgid "Unit of measure of the OKR Key Result."
+msgstr ""
+
+#. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__message_unread
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__message_unread
 msgid "Unread Messages"
@@ -842,6 +908,7 @@ msgid "Unread Messages Counter"
 msgstr ""
 
 #. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result_measurement__user_id
 #: model:res.groups,name:ssi_okr.okr_key_result_user_group
 #: model:res.groups,name:ssi_okr.okr_objective_user_group
 msgid "User"
@@ -877,6 +944,11 @@ msgstr ""
 #: model:res.groups,name:ssi_okr.okr_key_result_validator_group
 #: model:res.groups,name:ssi_okr.okr_objective_validator_group
 msgid "Validator"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result_measurement__value
+msgid "Value"
 msgstr ""
 
 #. module: ssi_okr
