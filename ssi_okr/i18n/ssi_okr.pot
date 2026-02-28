@@ -25,11 +25,22 @@ msgid "% Cancel"
 msgstr ""
 
 #. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_tree
+msgid "% Cancelled"
+msgstr ""
+
+#. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_tree
+msgid "% Completed"
+msgstr ""
+
+#. module: ssi_okr
 #: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_tree
 msgid "% Done"
 msgstr ""
 
 #. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_tree
 #: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_tree
 msgid "% Open"
 msgstr ""
@@ -37,6 +48,21 @@ msgstr ""
 #. module: ssi_okr
 #: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_tree
 msgid "% Terminate"
+msgstr ""
+
+#. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_tree
+msgid "% Terminated"
+msgstr ""
+
+#. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_form
+msgid "<span class=\"o_stat_text\">Deliverables</span>"
+msgstr ""
+
+#. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_form
+msgid "<span class=\"o_stat_text\">Key Results</span>"
 msgstr ""
 
 #. module: ssi_okr
@@ -100,6 +126,7 @@ msgstr ""
 #. module: ssi_okr
 #: model:res.groups,name:ssi_okr.okr_key_result_all
 #: model:res.groups,name:ssi_okr.okr_objective_all
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_form
 msgid "All"
 msgstr ""
 
@@ -246,6 +273,16 @@ msgid "Canceled Key Result Count"
 msgstr ""
 
 #. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_form
+msgid "Cancelled"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__cancelled_deliverable_count
+msgid "Cancelled Deliverable Count"
+msgstr ""
+
+#. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__company_id
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__company_id
 #: model:res.groups,name:ssi_okr.okr_key_result_company_group
@@ -276,6 +313,16 @@ msgid ""
 msgstr ""
 
 #. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_form
+msgid "Completed"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__completed_deliverable_count
+msgid "Completed Deliverable Count"
+msgstr ""
+
+#. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__done_key_result_count
 msgid "Completed Key Result Count"
 msgstr ""
@@ -296,6 +343,7 @@ msgid "Contact"
 msgstr ""
 
 #. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_form
 msgid "Count"
 msgstr ""
@@ -352,6 +400,22 @@ msgid "Deadline of the OKR Key Result."
 msgstr ""
 
 #. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__deliverable_count
+msgid "Deliverable Count"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__deliverable_ids
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_form
+msgid "Deliverables"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__deliverable_ids
+msgid "Deliverables related to the OKR Key Result."
+msgstr ""
+
+#. module: ssi_okr
 #: model:ir.model.fields,help:ssi_okr.field_okr_key_result__key_result
 msgid "Description of the OKR Key Result."
 msgstr ""
@@ -365,6 +429,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__display_name
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result_measurement__display_name
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__display_name
+#: model:ir.model.fields,field_description:ssi_okr.field_project_deliverable__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -410,6 +475,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__id
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result_measurement__id
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__id
+#: model:ir.model.fields,field_description:ssi_okr.field_project_deliverable__id
 msgid "ID"
 msgstr ""
 
@@ -448,7 +514,6 @@ msgstr ""
 #. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__key_result
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result_measurement__key_result_id
-#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_form
 msgid "Key Result"
 msgstr ""
 
@@ -460,9 +525,16 @@ msgstr ""
 #. module: ssi_okr
 #: model:ir.actions.act_window,name:ssi_okr.okr_key_result_action
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__key_result_ids
+#: model:ir.model.fields,field_description:ssi_okr.field_project_deliverable__key_result_ids
 #: model:ir.ui.menu,name:ssi_okr.okr_key_result_menu
 #: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_form
+#: model_terms:ir.ui.view,arch_db:ssi_okr.project_deliverable_view_form
 msgid "Key Results"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_project_deliverable__key_result_ids
+msgid "Key Results related to the Deliverable."
 msgstr ""
 
 #. module: ssi_okr
@@ -474,6 +546,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result____last_update
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result_measurement____last_update
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective____last_update
+#: model:ir.model.fields,field_description:ssi_okr.field_project_deliverable____last_update
 msgid "Last Modified on"
 msgstr ""
 
@@ -663,11 +736,17 @@ msgid "Objectives"
 msgstr ""
 
 #. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__open_deliverable_count
+msgid "On-Going Deliverable Count"
+msgstr ""
+
+#. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__open_key_result_count
 msgid "On-Going Key Result Count"
 msgstr ""
 
 #. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_form
 msgid "Open"
 msgstr ""
@@ -680,6 +759,7 @@ msgstr ""
 
 #. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__percentage
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_form
 #: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_form
 msgid "Percentage"
 msgstr ""
@@ -702,6 +782,26 @@ msgstr ""
 #. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__percentage_terminate
 msgid "Percentage Terminated"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__percentage_deliverable_cancelled
+msgid "Percentage of Cancelled Deliverable"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__percentage_deliverable_completed
+msgid "Percentage of Completed Deliverable"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__percentage_deliverable_open
+msgid "Percentage of On-Going Deliverable"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__percentage_deliverable_terminated
+msgid "Percentage of Terminated Deliverable"
 msgstr ""
 
 #. module: ssi_okr
@@ -733,6 +833,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__policy_template_id
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__policy_template_id
 msgid "Policy Template"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model,name:ssi_okr.model_project_deliverable
+msgid "Project Deliverable"
 msgstr ""
 
 #. module: ssi_okr
@@ -856,6 +961,16 @@ msgid ""
 msgstr ""
 
 #. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_form
+msgid "Terminated"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__terminated_deliverable_count
+msgid "Terminated Deliverable Count"
+msgstr ""
+
+#. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__terminate_key_result_count
 msgid "Terminated Key Result Count"
 msgstr ""
@@ -975,8 +1090,23 @@ msgid "∑ Cancel"
 msgstr ""
 
 #. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_tree
+msgid "∑ Cancelled"
+msgstr ""
+
+#. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_tree
+msgid "∑ Completed"
+msgstr ""
+
+#. module: ssi_okr
 #: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_tree
 msgid "∑ Done"
+msgstr ""
+
+#. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_tree
+msgid "∑ In-Progress"
 msgstr ""
 
 #. module: ssi_okr
@@ -987,4 +1117,9 @@ msgstr ""
 #. module: ssi_okr
 #: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_tree
 msgid "∑ Terminate"
+msgstr ""
+
+#. module: ssi_okr
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_tree
+msgid "∑ Terminated"
 msgstr ""
