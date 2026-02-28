@@ -33,6 +33,47 @@
             <field name="uom_id" />
             <field name="actual_value" />
             <field name="percentage" widget="percentage" />
+            <field name="deliverable_count" />
+            <field
+                        name="open_deliverable_count"
+                        string="∑ In-Progress"
+                        optional="hide"
+                    />
+            <field
+                        name="percentage_deliverable_open"
+                        string="% Open"
+                        widget="percentage"
+                    />
+            <field
+                        name="completed_deliverable_count"
+                        string="∑ Completed"
+                        optional="hide"
+                    />
+            <field
+                        name="percentage_deliverable_completed"
+                        string="% Completed"
+                        widget="percentage"
+                    />
+            <field
+                        name="cancelled_deliverable_count"
+                        string="∑ Cancelled"
+                        optional="hide"
+                    />
+            <field
+                        name="percentage_deliverable_cancelled"
+                        string="% Cancelled"
+                        widget="percentage"
+                    />
+            <field
+                        name="terminated_deliverable_count"
+                        string="∑ Terminated"
+                        optional="hide"
+                    />
+            <field
+                        name="percentage_deliverable_terminated"
+                        string="% Terminated"
+                        widget="percentage"
+                    />
         </xpath>
     </data>
     </field>
@@ -45,6 +86,22 @@
     <field name="mode">primary</field>
     <field name="arch" type="xml">
     <data>
+        <xpath expr="//div[@name='button_box']" position="inside">
+            <button
+                        name="action_open_deliverable"
+                        type="object"
+                        class="oe_stat_button"
+                        groups="ssi_project.project_deliverable_viewer_group"
+                        icon="fa-list"
+                    >
+                <div class="o_form_field o_stat_info">
+                    <span class="o_stat_value">
+                        <field name="deliverable_count" />
+                    </span>
+                    <span class="o_stat_text">Deliverables</span>
+                </div>
+            </button>
+        </xpath>
         <xpath expr="//field[@name='user_id']" position="after">
             <field name="partner_id" widget="many2one_avatar" />
             <field name="allowed_contact_ids" widget="many2many_tags" invisible="1" />
@@ -78,6 +135,47 @@
                         <field name="note" />
                     </tree>
                 </field>
+            </page>
+            <page name="deliverables" string="Deliverables">
+                <group name="deliverable" colspan="4" col="2">
+                    <group name="deliverable_left" colspan="1" col="2" string="Count">
+                        <field name="deliverable_count" string="All" />
+                        <field name="open_deliverable_count" string="Open" />
+                        <field name="completed_deliverable_count" string="Completed" />
+                        <field name="cancelled_deliverable_count" string="Cancelled" />
+                        <field
+                                    name="terminated_deliverable_count"
+                                    string="Terminated"
+                                />
+                    </group>
+                    <group
+                                name="deliverable_right"
+                                colspan="1"
+                                col="2"
+                                string="Percentage"
+                            >
+                        <field
+                                    name="percentage_deliverable_completed"
+                                    string="Completed"
+                                    widget="percentage"
+                                />
+                        <field
+                                    name="percentage_deliverable_open"
+                                    string="Open"
+                                    widget="percentage"
+                                />
+                        <field
+                                    name="percentage_deliverable_cancelled"
+                                    string="Cancelled"
+                                    widget="percentage"
+                                />
+                        <field
+                                    name="percentage_deliverable_terminated"
+                                    string="Terminated"
+                                    widget="percentage"
+                                />
+                    </group>
+                </group>
             </page>
         </xpath>
     </data>
