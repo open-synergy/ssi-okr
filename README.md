@@ -21,7 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[ssi_okr](ssi_okr/) | 14.0.3.2.0 |  | OKR
+[ssi_okr](ssi_okr/) | 14.0.3.3.0 |  | OKR
 
 [//]: # (end addons)
 
