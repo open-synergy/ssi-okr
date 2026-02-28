@@ -145,6 +145,113 @@ class OkrKeyResult(models.Model):
         compute_sudo=True,
     )
 
+    deliverable_ids = fields.Many2many(
+        comodel_name="project_deliverable",
+        string="Deliverables",
+        help="Deliverables related to the OKR Key Result.",
+        relation="rel_okr_key_result_2_deliverable",
+        column1="okr_key_result_id",
+        column2="deliverable_id",
+    )
+    deliverable_count = fields.Integer(
+        string="Deliverable Count",
+        compute="_compute_deliverable",
+        store=True,
+        compute_sudo=True,
+    )
+    open_deliverable_count = fields.Integer(
+        string="On-Going Deliverable Count",
+        compute="_compute_deliverable",
+        store=True,
+        compute_sudo=True,
+    )
+    completed_deliverable_count = fields.Integer(
+        string="Completed Deliverable Count",
+        compute="_compute_deliverable",
+        store=True,
+        compute_sudo=True,
+    )
+    cancelled_deliverable_count = fields.Integer(
+        string="Cancelled Deliverable Count",
+        compute="_compute_deliverable",
+        store=True,
+        compute_sudo=True,
+    )
+    terminated_deliverable_count = fields.Integer(
+        string="Terminated Deliverable Count",
+        compute="_compute_deliverable",
+        store=True,
+        compute_sudo=True,
+    )
+    percentage_deliverable_completed = fields.Float(
+        string="Percentage of Completed Deliverable",
+        compute="_compute_deliverable",
+        store=True,
+        compute_sudo=True,
+    )
+    percentage_deliverable_open = fields.Float(
+        string="Percentage of On-Going Deliverable",
+        compute="_compute_deliverable",
+        store=True,
+        compute_sudo=True,
+    )
+    percentage_deliverable_cancelled = fields.Float(
+        string="Percentage of Cancelled Deliverable",
+        compute="_compute_deliverable",
+        store=True,
+        compute_sudo=True,
+    )
+    percentage_deliverable_terminated = fields.Float(
+        string="Percentage of Terminated Deliverable",
+        compute="_compute_deliverable",
+        store=True,
+        compute_sudo=True,
+    )
+
+    @api.depends("deliverable_ids", "deliverable_ids.state")
+    def _compute_deliverable(self):
+        for record in self:
+            deliverables = record.deliverable_ids
+            record.deliverable_count = len(deliverables)
+            if deliverables:
+                open_deliverables = deliverables.filtered(
+                    lambda d: d.state in ["draft", "ready", "open", "confirm"]
+                )
+                completed_deliverables = deliverables.filtered(
+                    lambda d: d.state == "done"
+                )
+                cancelled_deliverables = deliverables.filtered(
+                    lambda d: d.state == "cancel"
+                )
+                terminated_deliverables = deliverables.filtered(
+                    lambda d: d.state == "terminate"
+                )
+                record.open_deliverable_count = len(open_deliverables)
+                record.completed_deliverable_count = len(completed_deliverables)
+                record.cancelled_deliverable_count = len(cancelled_deliverables)
+                record.terminated_deliverable_count = len(terminated_deliverables)
+                record.percentage_deliverable_completed = len(
+                    completed_deliverables
+                ) / len(deliverables)
+                record.percentage_deliverable_open = len(open_deliverables) / len(
+                    deliverables
+                )
+                record.percentage_deliverable_cancelled = len(
+                    cancelled_deliverables
+                ) / len(deliverables)
+                record.percentage_deliverable_terminated = len(
+                    terminated_deliverables
+                ) / len(deliverables)
+            else:
+                record.open_deliverable_count = 0
+                record.completed_deliverable_count = 0
+                record.cancelled_deliverable_count = 0
+                record.terminated_deliverable_count = 0
+                record.percentage_deliverable_completed = 0.0
+                record.percentage_deliverable_open = 0.0
+                record.percentage_deliverable_cancelled = 0.0
+                record.percentage_deliverable_terminated = 0.0
+
     @api.depends(
         "target_value",
         "measurement_ids.value",
@@ -191,6 +298,12 @@ class OkrKeyResult(models.Model):
         self.date_deadline = False
         if self.objective_id and self.objective_id.date_end:
             self.date_deadline = self.objective_id.date_end
+
+    def action_open_deliverable(self):
+        self.ensure_one()
+        action = self.env.ref("ssi_project.project_deliverable_action").read()[0]
+        action["domain"] = [("id", "in", self.deliverable_ids.ids)]
+        return action
 
     # E.11: insert form elements into view
     @ssi_decorator.insert_on_form_view()

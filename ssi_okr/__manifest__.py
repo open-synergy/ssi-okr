@@ -41,6 +41,7 @@
         "policy_template/okr_key_result.xml",
         "view/okr_objective.xml",
         "view/okr_key_result.xml",
+        "view/project_deliverable.xml",
     ],
     "demo": [],
 }

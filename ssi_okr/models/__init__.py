@@ -6,4 +6,5 @@ from . import (
     okr_objective,
     okr_key_result,
     okr_key_result_measurement,
+    project_deliverable,
 )
