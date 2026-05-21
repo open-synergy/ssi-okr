@@ -1,0 +1,260 @@
+scenarios:
+  - name: "OKR Objective - Create and progress to Done"
+    steps:
+      - step: "Get unit of measure"
+        action: "ref"
+        xml_id: "uom.product_uom_unit"
+        save_as: "uom"
+
+      - step: "Create OKR Objective"
+        action: "create"
+        model: "okr_objective"
+        save_as: "objective"
+        as_user: "base.user_admin"
+        values:
+          objective: "Test OKR Objective"
+          date_start: 2026-01-01
+          date_end: 2026-12-31
+
+      - step: "Assert objective created in draft"
+        action: "assert"
+        target: "objective"
+        asserts:
+          state:
+            type: "value"
+            expected: "draft"
+          objective:
+            type: "value"
+            expected: "Test OKR Objective"
+          key_result_count:
+            type: "value"
+            expected: 0
+
+      - step: "Move to Ready"
+        action: "call"
+        target: "objective"
+        method: "action_ready"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "ready"
+
+      - step: "Move to Open"
+        action: "call"
+        target: "objective"
+        method: "action_open"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+
+      - step: "Create Key Result linked to Objective"
+        action: "create"
+        model: "okr_key_result"
+        save_as: "key_result"
+        as_user: "base.user_admin"
+        values:
+          objective_id: "EVAL: registry['objective'].id"
+          key_result: "Test Key Result"
+          date_deadline: 2026-12-31
+          target_value: 100.0
+          uom_id: "EVAL: registry['uom'].id"
+
+      - step: "Assert key result in draft"
+        action: "assert"
+        target: "key_result"
+        asserts:
+          state:
+            type: "value"
+            expected: "draft"
+          actual_value:
+            type: "value"
+            expected: 0.0
+
+      - step: "Move key result to Ready"
+        action: "call"
+        target: "key_result"
+        method: "action_ready"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "ready"
+
+      - step: "Move key result to Open"
+        action: "call"
+        target: "key_result"
+        method: "action_open"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "open"
+
+      - step: "Add measurement to key result"
+        action: "create"
+        model: "okr_key_result.measurement"
+        save_as: "measurement"
+        values:
+          key_result_id: "EVAL: registry['key_result'].id"
+          date: 2026-06-01
+          value: 50.0
+
+      - step: "Assert actual value updated"
+        action: "assert"
+        target: "key_result"
+        asserts:
+          actual_value:
+            type: "value"
+            expected: 50.0
+
+      - step: "Move objective to Confirm"
+        action: "call"
+        target: "objective"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "confirm"
+
+      - step: "Approve objective to Done"
+        action: "call"
+        target: "objective"
+        method: "action_approve_approval"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "done"
+
+  - name: "OKR Objective - Cancel workflow"
+    steps:
+      - step: "Create OKR Objective"
+        action: "create"
+        model: "okr_objective"
+        save_as: "objective"
+        as_user: "base.user_admin"
+        values:
+          objective: "Objective to Cancel"
+          date_start: 2026-01-01
+          date_end: 2026-12-31
+
+      - step: "Move to Ready"
+        action: "call"
+        target: "objective"
+        method: "action_ready"
+        as_user: "base.user_admin"
+
+      - step: "Cancel objective"
+        action: "call"
+        target: "objective"
+        method: "action_cancel"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "cancel"
+
+      - step: "Restart cancelled objective"
+        action: "call"
+        target: "objective"
+        method: "action_restart"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "draft"
+
+  - name: "OKR Key Result - Percentage computation"
+    steps:
+      - step: "Get unit of measure"
+        action: "ref"
+        xml_id: "uom.product_uom_unit"
+        save_as: "uom"
+
+      - step: "Create OKR Objective"
+        action: "create"
+        model: "okr_objective"
+        save_as: "objective"
+        as_user: "base.user_admin"
+        values:
+          objective: "Objective for Percentage Test"
+          date_start: 2026-01-01
+          date_end: 2026-12-31
+
+      - step: "Move objective to Open"
+        action: "call"
+        target: "objective"
+        method: "action_ready"
+        as_user: "base.user_admin"
+
+      - step: "Open objective"
+        action: "call"
+        target: "objective"
+        method: "action_open"
+        as_user: "base.user_admin"
+
+      - step: "Create Key Result"
+        action: "create"
+        model: "okr_key_result"
+        save_as: "key_result"
+        as_user: "base.user_admin"
+        values:
+          objective_id: "EVAL: registry['objective'].id"
+          key_result: "KR for percentage"
+          date_deadline: 2026-12-31
+          target_value: 100.0
+          uom_id: "EVAL: registry['uom'].id"
+
+      - step: "Assert objective key result count"
+        action: "assert"
+        target: "objective"
+        asserts:
+          key_result_count:
+            type: "value"
+            expected: 1
+          open_key_result_count:
+            type: "value"
+            expected: 1
+
+      - step: "Move key result to Ready and Open"
+        action: "call"
+        target: "key_result"
+        method: "action_ready"
+        as_user: "base.user_admin"
+
+      - step: "Open key result"
+        action: "call"
+        target: "key_result"
+        method: "action_open"
+        as_user: "base.user_admin"
+
+      - step: "Confirm key result"
+        action: "call"
+        target: "key_result"
+        method: "action_confirm"
+        as_user: "base.user_admin"
+
+      - step: "Approve key result to Done"
+        action: "call"
+        target: "key_result"
+        method: "action_approve_approval"
+        as_user: "base.user_admin"
+        asserts:
+          state:
+            type: "value"
+            expected: "done"
+
+      - step: "Assert objective percentage updated"
+        action: "assert"
+        target: "objective"
+        asserts:
+          done_key_result_count:
+            type: "value"
+            expected: 1
+          percentage_completed:
+            type: "value"
+            expected: 1.0
