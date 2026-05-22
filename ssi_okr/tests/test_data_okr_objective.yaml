@@ -35,6 +35,8 @@ scenarios:
         target: "objective"
         method: "action_ready"
         as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
         asserts:
           state:
             type: "value"
@@ -45,6 +47,8 @@ scenarios:
         target: "objective"
         method: "action_open"
         as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
         asserts:
           state:
             type: "value"
@@ -78,6 +82,8 @@ scenarios:
         target: "key_result"
         method: "action_ready"
         as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
         asserts:
           state:
             type: "value"
@@ -88,6 +94,8 @@ scenarios:
         target: "key_result"
         method: "action_open"
         as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
         asserts:
           state:
             type: "value"
@@ -115,6 +123,8 @@ scenarios:
         target: "objective"
         method: "action_confirm"
         as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
         asserts:
           state:
             type: "value"
@@ -125,6 +135,8 @@ scenarios:
         target: "objective"
         method: "action_approve_approval"
         as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
         asserts:
           state:
             type: "value"
@@ -147,12 +159,16 @@ scenarios:
         target: "objective"
         method: "action_ready"
         as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
 
       - step: "Cancel objective"
         action: "call"
         target: "objective"
         method: "action_cancel"
         as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
         asserts:
           state:
             type: "value"
@@ -163,6 +179,8 @@ scenarios:
         target: "objective"
         method: "action_restart"
         as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
         asserts:
           state:
             type: "value"
@@ -190,12 +208,16 @@ scenarios:
         target: "objective"
         method: "action_ready"
         as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
 
       - step: "Open objective"
         action: "call"
         target: "objective"
         method: "action_open"
         as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
 
       - step: "Create Key Result"
         action: "create"
@@ -225,24 +247,32 @@ scenarios:
         target: "key_result"
         method: "action_ready"
         as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
 
       - step: "Open key result"
         action: "call"
         target: "key_result"
         method: "action_open"
         as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
 
       - step: "Confirm key result"
         action: "call"
         target: "key_result"
         method: "action_confirm"
         as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
 
       - step: "Approve key result to Done"
         action: "call"
         target: "key_result"
         method: "action_approve_approval"
         as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
         asserts:
           state:
             type: "value"
