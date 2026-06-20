@@ -12,6 +12,28 @@
     <field name="mode">primary</field>
     <field name="arch" type="xml">
     <data>
+        <xpath expr="//field[@name='company_id']" position="after">
+            <field name="partner_id" widget="many2one_avatar" />
+            <field name="objective_id" />
+            <field name="uom_id" />
+        </xpath>
+        <xpath expr="//filter[@name='grp_responsible']" position="after">
+            <filter
+                        name="grp_partner_id"
+                        string="Partner"
+                        context="{'group_by':'partner_id'}"
+                    />
+            <filter
+                        name="grp_objective_id"
+                        string="Objective"
+                        context="{'group_by':'objective_id'}"
+                    />
+            <filter
+                        name="grp_uom_id"
+                        string="Unit of Measure"
+                        context="{'group_by':'uom_id'}"
+                    />
+        </xpath>
     </data>
     </field>
 </record>
