@@ -12,6 +12,19 @@
     <field name="mode">primary</field>
     <field name="arch" type="xml">
     <data>
+        <xpath expr="//field[@name='company_id']" position="after">
+            <field name="partner_id" widget="many2one_avatar" />
+            <field name="objective" />
+            <field name="date_start" />
+            <field name="date_end" />
+        </xpath>
+        <xpath expr="//filter[@name='grp_responsible']" position="after">
+            <filter
+                        name="grp_partner_id"
+                        string="Partner"
+                        context="{'group_by':'partner_id'}"
+                    />
+        </xpath>
     </data>
     </field>
 </record>
