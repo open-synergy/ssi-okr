@@ -721,6 +721,7 @@ msgstr ""
 #. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__objective_id
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__objective
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_search
 msgid "Objective"
 msgstr ""
 
@@ -754,6 +755,8 @@ msgstr ""
 #. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__partner_id
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__partner_id
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_search
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_objective_view_search
 msgid "Partner"
 msgstr ""
 
@@ -1002,6 +1005,7 @@ msgstr ""
 
 #. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__uom_id
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_search
 msgid "Unit of Measure"
 msgstr ""
 
