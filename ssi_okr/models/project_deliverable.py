@@ -7,6 +7,13 @@ from odoo import fields, models
 
 
 class ProjectDeliverable(models.Model):
+    """
+    Extends ``project_deliverable`` with OKR Key Result linkage.
+
+    Adds a many2many relation so a project deliverable can be
+    associated with the Key Results it contributes to.
+    """
+
     _name = "project_deliverable"
     _inherit = [
         "project_deliverable",

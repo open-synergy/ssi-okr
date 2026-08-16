@@ -10,6 +10,15 @@ from odoo.addons.ssi_decorator import ssi_decorator
 
 
 class OkrObjective(models.Model):
+    """
+    Represents an OKR (Objectives and Key Results) Objective.
+
+    Tracks the goal statement of an OKR cycle through the standard
+    transaction lifecycle (draft, ready, open, confirm, approval,
+    done, cancel, terminate) provided by the ``mixin.transaction_*``
+    family, and aggregates progress from its related Key Results.
+    """
+
     _name = "okr_objective"
     _description = "OKR Objective"
     _inherit = [
@@ -166,6 +175,7 @@ class OkrObjective(models.Model):
 
     @api.model
     def _default_date(self):
+        """Return today's date as the default ``date`` value."""
         return date.today()
 
     @api.depends(
@@ -176,6 +186,13 @@ class OkrObjective(models.Model):
         "terminate_key_result_count",
     )
     def _compute_percentage(self):
+        """Compute the Key Result percentages per state.
+
+        Derives ``percentage_completed``, ``percentage_open``,
+        ``percentage_cancel``, and ``percentage_terminate`` from the
+        ratio between each state's Key Result count and
+        ``key_result_count``.
+        """
         for record in self:
             record.percentage_completed = (
                 (record.done_key_result_count / record.key_result_count)
@@ -203,6 +220,12 @@ class OkrObjective(models.Model):
         "key_result_ids.state",
     )
     def _compute_key_result_count(self):
+        """Compute Key Result counts grouped by state.
+
+        Counts ``key_result_ids`` overall and per state group
+        (on-going, done, canceled, terminated) to populate
+        ``key_result_count`` and its state-specific counterparts.
+        """
         for record in self:
             record.key_result_count = len(record.key_result_ids)
             record.open_key_result_count = len(
@@ -221,6 +244,11 @@ class OkrObjective(models.Model):
             )
 
     def action_open_key_result(self):
+        """Open the Key Results related to this Objective.
+
+        :return: an ``ir.actions.act_window`` domained to the Key
+            Results of this record
+        """
         self.ensure_one()
         partner = self.partner_id
         return {
