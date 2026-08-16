@@ -6,6 +6,12 @@ from odoo import models
 
 
 class OkrKeyResult(models.Model):
+    """
+    Attaches ``mixin.single_operating_unit`` to the OKR key result model.
+    Adds the Operating Unit field to key results and enforces the record
+    rules that scope key result access by Operating Unit.
+    """
+
     _name = "okr_key_result"
     _inherit = [
         "okr_key_result",

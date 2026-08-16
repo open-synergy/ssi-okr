@@ -18,8 +18,8 @@
         "security/res_group/okr_key_result.xml",
         "security/ir_rule/okr_objective.xml",
         "security/ir_rule/okr_key_result.xml",
-        "view/okr_objective.xml",
-        "view/okr_key_result.xml",
+        "views/okr_objective.xml",
+        "views/okr_key_result.xml",
     ],
     "demo": [],
 }
