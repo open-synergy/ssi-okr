@@ -35,6 +35,19 @@ Work Instruction
 * `Restart OKR Objective <docs/okr_objective/12-restart.html>`_
 * `Reset Document Number — OKR Objective <docs/okr_objective/13-reset-number.html>`_
 * `Restart Approval Process — OKR Objective <docs/okr_objective/14-restart-approval.html>`_
+* `Create OKR Key Result <docs/okr_key_result/01-create.html>`_
+* `Edit OKR Key Result <docs/okr_key_result/02-edit.html>`_
+* `Delete OKR Key Result <docs/okr_key_result/03-delete.html>`_
+* `Confirm OKR Key Result <docs/okr_key_result/04-confirm.html>`_
+* `Approve OKR Key Result <docs/okr_key_result/05-approve.html>`_
+* `Reject OKR Key Result <docs/okr_key_result/06-reject.html>`_
+* `Start OKR Key Result <docs/okr_key_result/07-start.html>`_
+* `Stage OKR Key Result <docs/okr_key_result/08-ready.html>`_
+* `Cancel OKR Key Result <docs/okr_key_result/10-cancel.html>`_
+* `Terminate OKR Key Result <docs/okr_key_result/11-terminate.html>`_
+* `Restart OKR Key Result <docs/okr_key_result/12-restart.html>`_
+* `Reset Document Number — OKR Key Result <docs/okr_key_result/13-reset-number.html>`_
+* `Restart Approval Process — OKR Key Result <docs/okr_key_result/14-restart-approval.html>`_
 
 Bug Tracker
 ===========
