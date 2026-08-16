@@ -21,6 +21,7 @@
         "ssi_transaction_partner_mixin",
         "ssi_transaction_date_duration_mixin",
         "ssi_m2o_configurator_mixin",
+        "web_tour",
     ],
     "data": [
         "security/ir_module_category/okr_objective.xml",
@@ -42,6 +43,7 @@
         "views/okr_objective.xml",
         "views/okr_key_result.xml",
         "views/project_deliverable.xml",
+        "views/assets.xml",
     ],
     "demo": [],
 }
