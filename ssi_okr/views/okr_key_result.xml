@@ -156,6 +156,14 @@
                         <field name="value" />
                         <field name="note" />
                     </tree>
+                    <form>
+                        <group name="measurement_group_1">
+                            <field name="date" />
+                            <field name="user_id" />
+                            <field name="value" />
+                            <field name="note" />
+                        </group>
+                    </form>
                 </field>
             </page>
             <page name="deliverables" string="Deliverables">

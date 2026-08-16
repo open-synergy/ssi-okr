@@ -39,9 +39,9 @@
         "approval_template/okr_key_result.xml",
         "policy_template/okr_objective.xml",
         "policy_template/okr_key_result.xml",
-        "view/okr_objective.xml",
-        "view/okr_key_result.xml",
-        "view/project_deliverable.xml",
+        "views/okr_objective.xml",
+        "views/okr_key_result.xml",
+        "views/project_deliverable.xml",
     ],
     "demo": [],
 }
