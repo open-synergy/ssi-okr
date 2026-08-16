@@ -10,6 +10,14 @@ from odoo.addons.ssi_decorator import ssi_decorator
 
 
 class OkrKeyResult(models.Model):
+    """
+    Represents a single Key Result belonging to an OKR Objective.
+    Tracks the target value and the actual value derived from its
+    measurements, going through the standard SSI transaction workflow
+    (ready, open, confirm/approval, done, cancel, terminate) together
+    with the multi-level approval and partner mixins.
+    """
+
     _name = "okr_key_result"
     _description = "OKR Key Result"
     _inherit = [
@@ -210,6 +218,14 @@ class OkrKeyResult(models.Model):
 
     @api.depends("deliverable_ids", "deliverable_ids.state")
     def _compute_deliverable(self):
+        """Compute deliverable counters and their percentages.
+
+        Sets ``deliverable_count``, ``open_deliverable_count``,
+        ``completed_deliverable_count``, ``cancelled_deliverable_count``,
+        ``terminated_deliverable_count``, and the matching
+        ``percentage_deliverable_*`` fields from the state of the
+        records linked through ``deliverable_ids``.
+        """
         for record in self:
             deliverables = record.deliverable_ids
             record.deliverable_count = len(deliverables)
@@ -259,6 +275,12 @@ class OkrKeyResult(models.Model):
         "measurement_ids",
     )
     def _compute_actual_value(self):
+        """Compute ``actual_value`` from the latest measurement.
+
+        Sets ``actual_value`` to the ``value`` of the record in
+        ``measurement_ids`` with the most recent ``date``. Left
+        untouched when there is no measurement yet.
+        """
         for record in self:
             record.percentage = 0.0
             # Loop measurement_ids to get the latest measurement value
@@ -275,6 +297,11 @@ class OkrKeyResult(models.Model):
         "measurement_ids",
     )
     def _compute_percentage(self):
+        """Compute ``percentage`` as ``actual_value`` over ``target_value``.
+
+        Sets ``percentage`` to ``0.0`` when ``target_value`` is falsy,
+        to avoid a division by zero.
+        """
         for record in self:
             if record.target_value:
                 record.percentage = record.actual_value / record.target_value
@@ -283,6 +310,10 @@ class OkrKeyResult(models.Model):
 
     @api.model
     def _default_date(self):
+        """Return today's date as the default for the ``date`` field.
+
+        :return: current date
+        """
         return date.today()
 
     @api.onchange(
@@ -300,6 +331,11 @@ class OkrKeyResult(models.Model):
             self.date_deadline = self.objective_id.date_end
 
     def action_open_deliverable(self):
+        """Open the deliverables linked to this Key Result.
+
+        :return: an ``ir.actions.act_window`` for ``project_deliverable``
+            filtered to the records in ``deliverable_ids``
+        """
         self.ensure_one()
         action = self.env.ref("ssi_project.project_deliverable_action").read()[0]
         action["domain"] = [("id", "in", self.deliverable_ids.ids)]
