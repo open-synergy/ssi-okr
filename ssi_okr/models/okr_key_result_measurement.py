@@ -6,6 +6,12 @@ from odoo import fields, models
 
 
 class OkrKeyResultMeasurement(models.Model):
+    """
+    Represents a single dated measurement recorded against a Key Result.
+    Each measurement captures the value reported by a user on a given
+    date, and the most recent one drives the Key Result's actual value.
+    """
+
     _name = "okr_key_result.measurement"
     _description = "OKR Key Result - Measurement"
 
