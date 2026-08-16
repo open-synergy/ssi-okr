@@ -19,6 +19,23 @@ To install this module, you need to:
 5.  Search For *OKR*
 6.  Install the module
 
+Work Instruction
+================
+
+* `Create OKR Objective <docs/okr_objective/01-create.html>`_
+* `Edit OKR Objective <docs/okr_objective/02-edit.html>`_
+* `Delete OKR Objective <docs/okr_objective/03-delete.html>`_
+* `Confirm OKR Objective <docs/okr_objective/04-confirm.html>`_
+* `Approve OKR Objective <docs/okr_objective/05-approve.html>`_
+* `Reject OKR Objective <docs/okr_objective/06-reject.html>`_
+* `Start OKR Objective <docs/okr_objective/07-start.html>`_
+* `Stage OKR Objective <docs/okr_objective/08-ready.html>`_
+* `Cancel OKR Objective <docs/okr_objective/10-cancel.html>`_
+* `Terminate OKR Objective <docs/okr_objective/11-terminate.html>`_
+* `Restart OKR Objective <docs/okr_objective/12-restart.html>`_
+* `Reset Document Number — OKR Objective <docs/okr_objective/13-reset-number.html>`_
+* `Restart Approval Process — OKR Objective <docs/okr_objective/14-restart-approval.html>`_
+
 Bug Tracker
 ===========
 
