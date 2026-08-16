@@ -22,7 +22,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [ssi_okr](ssi_okr/) | 14.0.3.5.1 |  | OKR
-[ssi_okr_operating_unit](ssi_okr_operating_unit/) | 14.0.1.1.0 |  | OKR + Operating Unit
+[ssi_okr_operating_unit](ssi_okr_operating_unit/) | 14.0.1.1.1 |  | OKR + Operating Unit
 
 [//]: # (end addons)
 
