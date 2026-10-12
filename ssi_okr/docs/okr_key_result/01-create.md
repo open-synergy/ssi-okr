@@ -29,6 +29,11 @@
    - **Target Value** _(required)_: the numeric target to reach.
    - **Unit of Measure** _(required)_: the unit **Target Value** and **Actual Value**
      are measured in.
+   - **Key Result Type** _(required)_: either **Committed** or **Aspirational**.
+     Automatically filled with **Committed**. Change if needed.
+   - **Measurement Frequency** _(required)_: either **Monthly**, **Quarterly** or
+     **Semesterly**. Automatically filled with **Monthly**. Change if needed. This is
+     informational only and does not trigger any reminder.
    - **Date**: automatically filled with today's date. Change if needed.
    - **Deadline**: automatically filled from **Objective**'s end date if set. Change if
      needed.
@@ -39,6 +44,8 @@
 ## Post-Condition
 
 - A new record is created in **Draft** status.
+- **Assessment** in the **Target & Measurement** tab shows **Grey**, because the Key
+  Result has no measurement yet.
 - The document number (**Name**) still shows **/** — it is only assigned when the Key
   Result is started (see `07-start`).
 - The **Measurements** lines in the **Target & Measurement** tab cannot be added yet —

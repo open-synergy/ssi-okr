@@ -8,6 +8,8 @@ from odoo import api, fields, models
 
 from odoo.addons.ssi_decorator import ssi_decorator
 
+from .okr_key_result_measurement import ASSESSMENT_SELECTION
+
 
 class OkrKeyResult(models.Model):
     """
@@ -93,6 +95,34 @@ class OkrKeyResult(models.Model):
     partner_id = fields.Many2one(
         required=False,
     )
+    key_result_type = fields.Selection(
+        string="Key Result Type",
+        selection=[
+            ("committed", "Committed"),
+            ("aspirational", "Aspirational"),
+        ],
+        required=True,
+        default="committed",
+        readonly=True,
+        states={"draft": [("readonly", False)]},
+        help="Type of the Key Result. Committed means the target is "
+        "expected to be fully achieved; Aspirational means it is a "
+        "stretch target.",
+    )
+    measurement_frequency = fields.Selection(
+        string="Measurement Frequency",
+        selection=[
+            ("monthly", "Monthly"),
+            ("quarterly", "Quarterly"),
+            ("semesterly", "Semesterly"),
+        ],
+        required=True,
+        default="monthly",
+        readonly=True,
+        states={"draft": [("readonly", False)]},
+        help="How often the Key Result is expected to be measured. "
+        "Informational only.",
+    )
     objective_id = fields.Many2one(
         comodel_name="okr_objective",
         string="Objective",
@@ -136,6 +166,17 @@ class OkrKeyResult(models.Model):
         help="Actual value of the OKR Key Result.",
         store=True,
         compute_sudo=True,
+    )
+    assessment = fields.Selection(
+        string="Assessment",
+        selection=ASSESSMENT_SELECTION,
+        compute="_compute_assessment",
+        store=True,
+        compute_sudo=True,
+        help="Assessment taken from the measurement with the latest "
+        "date. Grey means the Key Result cannot be assessed yet: there "
+        "is no measurement, or the latest measurement was marked as "
+        "outside the assessment period.",
     )
     uom_id = fields.Many2one(
         comodel_name="uom.uom",
@@ -289,6 +330,27 @@ class OkrKeyResult(models.Model):
                     record.measurement_ids, key=lambda m: m.date or date.min
                 )
                 record.actual_value = latest_measurement.value
+
+    @api.depends(
+        "measurement_ids",
+        "measurement_ids.date",
+        "measurement_ids.assessment",
+    )
+    def _compute_assessment(self):
+        """Compute ``assessment`` from the latest measurement.
+
+        Sets ``assessment`` to the ``assessment`` of the record in
+        ``measurement_ids`` with the most recent ``date``, or to
+        ``"grey"`` when there is no measurement.
+        """
+        for record in self:
+            result = "grey"
+            if record.measurement_ids:
+                latest_measurement = max(
+                    record.measurement_ids, key=lambda m: m.date or date.min
+                )
+                result = latest_measurement.assessment
+            record.assessment = result
 
     @api.depends(
         "target_value",

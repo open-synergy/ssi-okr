@@ -1,0 +1,192 @@
+setup:
+  steps:
+    - step: "Get unit of measure"
+      action: "ref"
+      xml_id: "uom.product_uom_unit"
+      save_as: "uom"
+
+    - step: "Create OKR Objective"
+      action: "create"
+      model: "okr_objective"
+      save_as: "objective"
+      as_user: "base.user_admin"
+      values:
+        objective: "Assessment Objective"
+        date_start: 2026-01-01
+        date_end: 2026-12-31
+
+    - step: "Move objective to Ready"
+      action: "call"
+      target: "objective"
+      method: "action_ready"
+      as_user: "base.user_admin"
+      context:
+        bypass_policy_check: true
+
+    - step: "Move objective to Open"
+      action: "call"
+      target: "objective"
+      method: "action_open"
+      as_user: "base.user_admin"
+      context:
+        bypass_policy_check: true
+
+scenarios:
+  - name: "OKR Key Result - Defaults"
+    steps:
+      - step: "Create Key Result without type, frequency or assessment"
+        action: "create"
+        model: "okr_key_result"
+        save_as: "key_result"
+        as_user: "base.user_admin"
+        values:
+          objective_id: "EVAL: registry['objective'].id"
+          key_result: "KR defaults"
+          date_deadline: 2026-12-31
+          target_value: 100.0
+          uom_id: "EVAL: registry['uom'].id"
+
+      - step: "Assert default type, frequency and assessment"
+        action: "assert"
+        target: "key_result"
+        asserts:
+          key_result_type:
+            type: "value"
+            expected: "committed"
+          measurement_frequency:
+            type: "value"
+            expected: "monthly"
+          assessment:
+            type: "value"
+            expected: "grey"
+
+  - name: "OKR Key Result - Explicit type and frequency"
+    steps:
+      - step: "Create Key Result with explicit type and frequency"
+        action: "create"
+        model: "okr_key_result"
+        save_as: "key_result"
+        as_user: "base.user_admin"
+        values:
+          objective_id: "EVAL: registry['objective'].id"
+          key_result: "KR explicit"
+          date_deadline: 2026-12-31
+          target_value: 100.0
+          uom_id: "EVAL: registry['uom'].id"
+          key_result_type: "aspirational"
+          measurement_frequency: "semesterly"
+
+      - step: "Assert type and frequency are stored"
+        action: "assert"
+        target: "key_result"
+        asserts:
+          key_result_type:
+            type: "value"
+            expected: "aspirational"
+          measurement_frequency:
+            type: "value"
+            expected: "semesterly"
+
+  - name: "OKR Key Result - Assessment follows latest measurement"
+    steps:
+      - step: "Create Key Result"
+        action: "create"
+        model: "okr_key_result"
+        save_as: "key_result"
+        as_user: "base.user_admin"
+        values:
+          objective_id: "EVAL: registry['objective'].id"
+          key_result: "KR assessment"
+          date_deadline: 2026-12-31
+          target_value: 100.0
+          uom_id: "EVAL: registry['uom'].id"
+
+      - step: "Move Key Result to Ready"
+        action: "call"
+        target: "key_result"
+        method: "action_ready"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+
+      - step: "Move Key Result to Open"
+        action: "call"
+        target: "key_result"
+        method: "action_open"
+        as_user: "base.user_admin"
+        context:
+          bypass_policy_check: true
+
+      - step: "Add January measurement assessed yellow"
+        action: "create"
+        model: "okr_key_result.measurement"
+        save_as: "measurement_jan"
+        values:
+          key_result_id: "EVAL: registry['key_result'].id"
+          date: 2026-01-31
+          value: 10.0
+          assessment: "yellow"
+
+      - step: "Add February measurement assessed green"
+        action: "create"
+        model: "okr_key_result.measurement"
+        save_as: "measurement_feb"
+        values:
+          key_result_id: "EVAL: registry['key_result'].id"
+          date: 2026-02-28
+          value: 20.0
+          assessment: "green"
+
+      - step: "Assert assessment is green"
+        action: "assert"
+        target: "key_result"
+        asserts:
+          assessment:
+            type: "value"
+            expected: "green"
+
+      - step: "Add an older measurement assessed red"
+        action: "create"
+        model: "okr_key_result.measurement"
+        save_as: "measurement_old"
+        values:
+          key_result_id: "EVAL: registry['key_result'].id"
+          date: 2026-01-15
+          value: 5.0
+          assessment: "red"
+
+      - step: "Assert assessment still follows the latest date"
+        action: "assert"
+        target: "key_result"
+        asserts:
+          assessment:
+            type: "value"
+            expected: "green"
+
+      - step: "Delete the older measurement"
+        action: "unlink"
+        target: "measurement_old"
+
+      - step: "Delete the February measurement"
+        action: "unlink"
+        target: "measurement_feb"
+
+      - step: "Assert assessment falls back to the January one"
+        action: "assert"
+        target: "key_result"
+        asserts:
+          assessment:
+            type: "value"
+            expected: "yellow"
+
+      - step: "Delete the last measurement"
+        action: "unlink"
+        target: "measurement_jan"
+
+      - step: "Assert assessment is grey without measurements"
+        action: "assert"
+        target: "key_result"
+        asserts:
+          assessment:
+            type: "value"
+            expected: "grey"

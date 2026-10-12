@@ -144,6 +144,27 @@ odoo.define("ssi_okr.okr_key_result_tour", function (require) {
                     in_modal: false,
                 },
 
+                // Key Result Type and Measurement Frequency are required but
+                // pre-filled by their defaults (Committed / Monthly), and the
+                // work instruction only asks to change them "if needed", so
+                // they are only asserted to be present.
+                {
+                    content: "Key Result Type is displayed",
+                    trigger: ".o_field_widget[name='key_result_type']",
+                    extra_trigger: ".o_form_view.o_form_editable",
+                    run: function () {
+                        // Assertion only.
+                    },
+                },
+                {
+                    content: "Measurement Frequency is displayed",
+                    trigger: ".o_field_widget[name='measurement_frequency']",
+                    extra_trigger: ".o_form_view.o_form_editable",
+                    run: function () {
+                        // Assertion only.
+                    },
+                },
+
                 // Date is already filled with today's date by its default and
                 // Deadline is filled from the Objective's end date by the
                 // onchange, and the work instruction only asks to change them
