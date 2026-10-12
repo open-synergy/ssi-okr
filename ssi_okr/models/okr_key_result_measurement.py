@@ -4,6 +4,13 @@
 
 from odoo import fields, models
 
+ASSESSMENT_SELECTION = [
+    ("green", "Green"),
+    ("yellow", "Yellow"),
+    ("red", "Red"),
+    ("grey", "Grey"),
+]
+
 
 class OkrKeyResultMeasurement(models.Model):
     """
@@ -34,6 +41,15 @@ class OkrKeyResultMeasurement(models.Model):
     value = fields.Float(
         string="Value",
         required=True,
+    )
+    assessment = fields.Selection(
+        string="Assessment",
+        selection=ASSESSMENT_SELECTION,
+        required=True,
+        default="grey",
+        help="Assessment of the Key Result at the time of this "
+        "measurement. Grey means the Key Result cannot be assessed yet, "
+        "for example because it is outside the assessment period.",
     )
     note = fields.Text(
         string="Note",
