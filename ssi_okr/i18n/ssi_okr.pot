@@ -176,6 +176,34 @@ msgid "Approved"
 msgstr ""
 
 #. module: ssi_okr
+#: model:ir.model.fields.selection,name:ssi_okr.selection__okr_key_result__key_result_type__aspirational
+msgid "Aspirational"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__assessment
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result_measurement__assessment
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_search
+msgid "Assessment"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result_measurement__assessment
+msgid ""
+"Assessment of the Key Result at the time of this measurement. Grey means the"
+" Key Result cannot be assessed yet, for example because it is outside the "
+"assessment period."
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__assessment
+msgid ""
+"Assessment taken from the measurement with the latest date. Grey means the "
+"Key Result cannot be assessed yet: there is no measurement, or the latest "
+"measurement was marked as outside the assessment period."
+msgstr ""
+
+#. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__message_attachment_count
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__message_attachment_count
 msgid "Attachment Count"
@@ -280,6 +308,11 @@ msgstr ""
 #. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__cancelled_deliverable_count
 msgid "Cancelled Deliverable Count"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields.selection,name:ssi_okr.selection__okr_key_result__key_result_type__committed
+msgid "Committed"
 msgstr ""
 
 #. module: ssi_okr
@@ -472,6 +505,24 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr ""
 
 #. module: ssi_okr
+#: model:ir.model.fields.selection,name:ssi_okr.selection__okr_key_result__assessment__green
+#: model:ir.model.fields.selection,name:ssi_okr.selection__okr_key_result_measurement__assessment__green
+msgid "Green"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields.selection,name:ssi_okr.selection__okr_key_result__assessment__grey
+#: model:ir.model.fields.selection,name:ssi_okr.selection__okr_key_result_measurement__assessment__grey
+msgid "Grey"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__measurement_frequency
+msgid ""
+"How often the Key Result is expected to be measured. Informational only."
+msgstr ""
+
+#. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__id
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result_measurement__id
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__id
@@ -520,6 +571,12 @@ msgstr ""
 #. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__key_result_count
 msgid "Key Result Count"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__key_result_type
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_search
+msgid "Key Result Type"
 msgstr ""
 
 #. module: ssi_okr
@@ -580,6 +637,12 @@ msgid ""
 msgstr ""
 
 #. module: ssi_okr
+#: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__measurement_frequency
+#: model_terms:ir.ui.view,arch_db:ssi_okr.okr_key_result_view_search
+msgid "Measurement Frequency"
+msgstr ""
+
+#. module: ssi_okr
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__measurement_ids
 msgid "Measurements"
 msgstr ""
@@ -599,6 +662,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__message_ids
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__message_ids
 msgid "Messages"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields.selection,name:ssi_okr.selection__okr_key_result__measurement_frequency__monthly
+msgid "Monthly"
 msgstr ""
 
 #. module: ssi_okr
@@ -844,12 +912,23 @@ msgid "Project Deliverable"
 msgstr ""
 
 #. module: ssi_okr
+#: model:ir.model.fields.selection,name:ssi_okr.selection__okr_key_result__measurement_frequency__quarterly
+msgid "Quarterly"
+msgstr ""
+
+#. module: ssi_okr
 #: model:ir.model.fields,help:ssi_okr.field_okr_key_result__ready_ok
 #: model:ir.model.fields,help:ssi_okr.field_okr_objective__ready_ok
 msgid ""
 "Ready policy\n"
 "\n"
 "* If active user can see and execute 'Staged' button"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields.selection,name:ssi_okr.selection__okr_key_result__assessment__red
+#: model:ir.model.fields.selection,name:ssi_okr.selection__okr_key_result_measurement__assessment__red
+msgid "Red"
 msgstr ""
 
 #. module: ssi_okr
@@ -901,6 +980,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_key_result__reviewer_id
 #: model:ir.model.fields,field_description:ssi_okr.field_okr_objective__reviewer_id
 msgid "Reviewer"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields.selection,name:ssi_okr.selection__okr_key_result__measurement_frequency__semesterly
+msgid "Semesterly"
 msgstr ""
 
 #. module: ssi_okr
@@ -998,6 +1082,13 @@ msgid ""
 msgstr ""
 
 #. module: ssi_okr
+#: model:ir.model.fields,help:ssi_okr.field_okr_key_result__key_result_type
+msgid ""
+"Type of the Key Result. Committed means the target is expected to be fully "
+"achieved; Aspirational means it is a stretch target."
+msgstr ""
+
+#. module: ssi_okr
 #: model:ir.model.fields,help:ssi_okr.field_okr_key_result__activity_exception_decoration
 #: model:ir.model.fields,help:ssi_okr.field_okr_objective__activity_exception_decoration
 msgid "Type of the exception activity on record."
@@ -1086,6 +1177,12 @@ msgstr ""
 #: model:ir.model.fields,help:ssi_okr.field_okr_key_result__website_message_ids
 #: model:ir.model.fields,help:ssi_okr.field_okr_objective__website_message_ids
 msgid "Website communication history"
+msgstr ""
+
+#. module: ssi_okr
+#: model:ir.model.fields.selection,name:ssi_okr.selection__okr_key_result__assessment__yellow
+#: model:ir.model.fields.selection,name:ssi_okr.selection__okr_key_result_measurement__assessment__yellow
+msgid "Yellow"
 msgstr ""
 
 #. module: ssi_okr
